@@ -4,7 +4,7 @@ require('header.php');
 <link href="assets/css/donate.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
 <title>Donate</title>
 
-<div class="header">
+<div class="header bg-image lazy" style="background-image: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 60%) 100%), url(assets/img/home10.jpg)">
 	<div class="container">
 		<p id="text_header">Make a donation</p>
 		<div class="divider mb-4"></div>
