@@ -23,7 +23,7 @@ require('header.php');
         <img src="assets/img/home11.jpg" />
     </div>
     <div class="col-md-7" style="text-align:left">
-        <p id="text_header"></p>
+        <!-- <p id="text_header"></p> -->
         <div class="divider mb-4" ></div>
         <p id="text_body">
             Thank you so much for taking the trouble to visit Dad’s special  home here at the Jimmy Greaves Foundation. I promise you he'll be thrilled to know you're thinking of him.  Our aim on this exclusive website is to create space and a place where people can support the Jimmy Greaves Foundation and possibly receive something in return. If you would like to make a donation in Jimmy’s name, it would be greatly appreciated. Every penny after expenses goes towards the causes chosen by Dad. To encourage you to return often to this website  we will be featuring monthly auctions and raffles, so that you and all visitors can bid and maybe win some unique memorabilia. Please register, so that we can keep in touch and let you know what great prizes are on offer. Once again, thank you for your support. Our simple aim is to keep alive the Greavsie spirit. 

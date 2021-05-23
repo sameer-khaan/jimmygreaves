@@ -79,7 +79,7 @@
     cursor: pointer;
     transition: background-image 0.6s ease-out;
     background-size: cover;
-    background-position: center;
+    background-position: unset;
 }
 #home_section_3.background1{
     /*background-image: linear-gradient(to bottom, rgb(0 0 0 / 20%) 20%, rgb(0 0 0  / 20%) 100%),url('../img/home8.jpg');*/
