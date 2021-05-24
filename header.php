@@ -37,7 +37,7 @@ if(isset($_SESSION['login_flag']))
     <body id="page-top">
         <!-- Navigation-->
         <div class="loading-gif"></div>
-         
+
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 navbar-scrolled" id="mainNav">
             <div class="container">
                 <a class="navbar-brand js-scroll-trigger" href="<?php echo $site_url?>">
@@ -66,6 +66,7 @@ if(isset($_SESSION['login_flag']))
         </nav>
     </body>
 </html>
+
 <div class="modal " id="signin_modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -7,7 +7,8 @@ require('header.php');
 <title>About</title>
 
 
-<header class="masthead bg-image lazy" style="background-image: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 60%) 100%), url(assets/img/home8.jpg)">
+<header class="masthead bg-image">
+    <!-- <img src="assets/img/home8.png" style="width:auto;position:absolute;" /> -->
     <div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end mt-5 mb-5">

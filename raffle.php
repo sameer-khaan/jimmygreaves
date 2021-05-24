@@ -5,8 +5,9 @@ require('header.php');
 <title>Raffle</title>
 
 
-<header class="masthead bg-image lazy" style="background-image: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 60%) 100%), url(assets/img/home9.jpg); background-position: unset;">
-    <div class="container h-100">
+<header class="masthead bg-image" style="background-image: url(assets/img/home9.png); background-position: unset;">
+	<!-- <img src="assets/img/home9.png" style="width:auto;position:absolute;" /> -->
+	<div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end mt-5 mb-5">
                 <p class="text-white" style="font-size:50px;">Raffle memorabilia</p>

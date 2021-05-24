@@ -10293,24 +10293,28 @@ hr.light {
     opacity: 0;
   }
 }
-.bg-image.lazy {
-  background-image: none;
-  background-color: #fff;
-}
-header.masthead {
+header.masthead{
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
-  background-image: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 60%) 100%), url("../img/home1.jpg");
+	width: 100%;
+  /* background-image: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 60%) 100%), url("../img/home1.png"); */
+  background-image: url("../img/home1.png");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
+  transition: background-image 0.6s ease-out;
+	overflow-x: hidden;
+  position: relative;
+}
+header .container {
+	position: relative;
 }
 header.masthead h1 {
   font-size: 2.25rem;
 }
 @media (min-width: 992px) {
-  header.masthead {
+  header.masthead{
     height: 100%;
     padding-top: 4.5rem;
     padding-bottom: 0;
