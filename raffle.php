@@ -3,9 +3,21 @@ require('header.php');
 ?>
 <link href="assets/css/auction.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
 <title>Raffle</title>
+<style type="text/css">
+	@keyframes sharpen {
+		0% {
+			background-image: none;
+			opacity:0.3;
+		}
+		100% {
+			background-image: url("assets/img/home9.png");
+			opacity:1;
+		}
+	}
+</style>
 
 
-<header class="masthead bg-image" style="background-image: url(assets/img/home9.png); background-position: unset;">
+<header class="masthead" style="background-position: unset;">
 	<!-- <img src="assets/img/home9.png" style="width:auto;position:absolute;" /> -->
 	<div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">

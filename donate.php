@@ -3,8 +3,21 @@ require('header.php');
 ?>
 <link href="assets/css/donate.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
 <title>Donate</title>
+<style type="text/css">
+	@keyframes sharpen {
+		0% {
+			background-image: none;
+			opacity:0.3;
+		}
+		100% {
+			background-image: url("assets/img/home10.png");
+			opacity:1;
+		}
+	}
+</style>
 
-<div class="header bg-image">
+
+<div class="header mastheader">
 	<!-- <img src="assets/img/home10.png" style="width:auto;position:absolute;" /> -->
 	<div class="container">
 		<p id="text_header">Make a donation</p>

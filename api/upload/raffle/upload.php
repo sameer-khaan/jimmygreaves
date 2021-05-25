@@ -1,6 +1,9 @@
 <?php
 $id = $_POST['id'];
 $target_dir = $id.'/';
+if (!file_exists($target_dir)) {
+  mkdir($target_dir, 0777, true);
+}
 $rand = rand(10,100000);
 $target_file = $target_dir . basename($rand."-".$_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;

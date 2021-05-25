@@ -196,7 +196,9 @@ require('../footer.php');
                       save_image();  
                       show_images();
                       swal("Success","Successfully added.","success");              
-                    }
+                     } else {
+                      swal('Error',result1['message'],"info");
+                     }
                   }
               });
         })

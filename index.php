@@ -3,9 +3,21 @@ require('header.php');
 ?>
 <link href="assets/css/home.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
 <title>Home</title>
+<style type="text/css">
+	@keyframes sharpen {
+		0% {
+			background-image: none;
+			opacity:0.3;
+		}
+		100% {
+			background-image: url("assets/img/home1.png");
+			opacity:1;
+		}
+	}
+</style>
 
 
-<header class="masthead bg-image">
+<header class="masthead">
     <!-- <img src="assets/img/home1.png" style="width:auto;position:absolute;" /> -->
     <div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">

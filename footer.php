@@ -46,7 +46,6 @@
     </div>
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <!-- Bootstrap core JS-->
 <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -62,15 +61,20 @@
 <script src="assets/js/scripts.js"></script>
 
 <script type="text/javascript">
+    window.onload = function () { 
+        $('header.masthead').addClass('bg-image');
+        $('div.mastheader').addClass('bg-image');
+    }
+
     var login_flag = '<?php echo $login_flag?>';
     var user_name = '<?php echo $user_name?>';
     var user_id = '<?php echo $user_id?>';
     var user_email = '<?php echo $email?>';
+    
     $(function() {
       $('a#arrow_bottom').on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 500, 'linear');
       });
     });
-
 </script>

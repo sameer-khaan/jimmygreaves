@@ -126,7 +126,7 @@ if($request=="create_auction"){
 	$insert_id = $conn->insert_id;
 	$return['status']=200;
 	$return['id']=$insert_id;
-	mkdir("upload/auction/".$insert_id);
+	mkdir("upload/auction/".$insert_id, 0777, true);
 	echo json_encode($return);
 
 }
@@ -262,7 +262,7 @@ if($request=="create_raffle"){
 	$insert_id = $conn->insert_id;
 	$return['status']=200;
 	$return['id']=$insert_id;
-	mkdir("upload/raffle/".$insert_id);
+	mkdir("upload/raffle/".$insert_id, 0777, true);
 	echo json_encode($return);
 
 }

@@ -10293,17 +10293,20 @@ hr.light {
     opacity: 0;
   }
 }
+.bg-image{
+  animation: sharpen 2s both;
+}
 header.masthead{
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
 	width: 100%;
+  /* background-color:#343A42; */
   /* background-image: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 60%) 100%), url("../img/home1.png"); */
-  background-image: url("../img/home1.png");
+  /* background-image: url("../img/home1.png"); */
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-size: cover;
-  transition: background-image 0.6s ease-out;
 	overflow-x: hidden;
   position: relative;
 }
