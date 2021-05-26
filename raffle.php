@@ -6,12 +6,14 @@ require('header.php');
 <style type="text/css">
 	@keyframes sharpen {
 		0% {
-			background-image: none;
-			opacity:0.3;
+			background-image: url("assets/img/home9.jpg");
+            filter: blur(1px);
+			/* opacity:0.3; */
 		}
 		100% {
 			background-image: url("assets/img/home9.jpg");
-			opacity:1;
+            filter: blur(0px);
+			/* opacity:1; */
 		}
 	}
 </style>
@@ -95,7 +97,7 @@ require('footer.php');
 				    	<p id="price">£`+data[i]['price']+`</p>
 				    	<p id="desc">`+data[i]['description']+`</p>
 				    	<div id="status" style="display:flex">
-				    		<span>`+data[i]['buyer_count']+` bids</span>
+				    		<span>`+data[i]['ticket_sold']+` ticket sold</span>
 				    		<span id="timer"><ion-icon name="alarm-outline"></ion-icon>`+expir_date+`</span>
 				    	</div> 
 				    </div>`;

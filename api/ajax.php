@@ -207,11 +207,7 @@ if($request=="buy_donate"){
 
 if($request=="get_raffles"){
 	// $sql="SELECT * FROM raffle";
-	$sql="
-		SELECT r.*, IFNULL(d.buyer_cnt, 0) AS buyer_count
-			FROM raffle r 
-			LEFT JOIN (SELECT raffle_id, COUNT(raffle_id) AS buyer_cnt FROM raffle_detail GROUP BY raffle_id) d 
-				ON r.id = d.raffle_id";
+	$sql="SELECT r.*, IFNULL(d.buyer_cnt, 0) AS buyer_count, IFNULL(e.ticket_cnt, 0) AS ticket_sold FROM raffle r LEFT JOIN (SELECT raffle_id, COUNT(raffle_id) AS buyer_cnt FROM raffle_detail GROUP BY raffle_id) d ON r.id = d.raffle_id LEFT JOIN (SELECT raffle_id, SUM(buy_amount) AS ticket_cnt FROM raffle_detail GROUP BY raffle_id) e ON r.id = e.raffle_id";
 	$result = $conn->query($sql);
     $rows = array();
 	if($result->num_rows != 0)

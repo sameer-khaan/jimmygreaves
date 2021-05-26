@@ -73,6 +73,7 @@
     height: 100vh;
     min-width: 1000px;
     overflow-x: auto !important;
+    background-color:#343A42;
     background-image: url("../img/home8.jpg");
     /*background-image: linear-gradient(to bottom, rgb(0 0 0 / 20%) 20%, rgb(0 0 0  / 20%) 100%),url('../img/home8.jpg');*/
     display:flex;

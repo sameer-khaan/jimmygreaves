@@ -6,12 +6,14 @@ require('header.php');
 <style type="text/css">
 	@keyframes sharpen {
 		0% {
-			background-image: none;
-			opacity:0.3;
+			background-image: url("assets/img/home2.jpg");
+            filter: blur(1px);
+			/* opacity:0.3; */
 		}
 		100% {
 			background-image: url("assets/img/home2.jpg");
-			opacity:1;
+            filter: blur(0px);
+			/* opacity:1; */
 		}
 	}
 </style>

@@ -10294,7 +10294,7 @@ hr.light {
   }
 }
 .bg-image{
-  animation: sharpen 2s both;
+  animation: sharpen 0.6s both;
 }
 header.masthead{
   padding-top: 10rem;
