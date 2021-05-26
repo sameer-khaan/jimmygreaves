@@ -15,7 +15,7 @@ require('header.php');
 			opacity:0.3;
 		}
 		100% {
-			background-image: url("assets/img/home8.png");
+			background-image: url("assets/img/home8.jpg");
 			opacity:1;
 		}
 	}
@@ -23,7 +23,7 @@ require('header.php');
 
 
 <header class="masthead">
-	<!-- <img src="assets/img/home8.png" style="width:auto;position:absolute;" /> -->
+	<!-- <img src="assets/img/home8.jpg" style="width:auto;position:absolute;" /> -->
     <div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end mt-5 mb-5">

@@ -10,7 +10,7 @@ require('header.php');
 			opacity:0.3;
 		}
 		100% {
-			background-image: url("assets/img/home10.png");
+			background-image: url("assets/img/home10.jpg");
 			opacity:1;
 		}
 	}
@@ -18,7 +18,7 @@ require('header.php');
 
 
 <div class="header mastheader">
-	<!-- <img src="assets/img/home10.png" style="width:auto;position:absolute;" /> -->
+	<!-- <img src="assets/img/home10.jpg" style="width:auto;position:absolute;" /> -->
 	<div class="container">
 		<p id="text_header">Make a donation</p>
 		<div class="divider mb-4"></div>

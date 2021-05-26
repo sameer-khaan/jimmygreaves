@@ -10,7 +10,7 @@ require('header.php');
 			opacity:0.3;
 		}
 		100% {
-			background-image: url("assets/img/home2.png");
+			background-image: url("assets/img/home2.jpg");
 			opacity:1;
 		}
 	}
@@ -18,7 +18,7 @@ require('header.php');
 
 
 <header class="masthead">
-	<!-- <img src="assets/img/home2.png" style="width:auto;position:absolute;" /> -->
+	<!-- <img src="assets/img/home2.jpg" style="width:auto;position:absolute;" /> -->
     <div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">
             <div class="col-lg-10 align-self-end mt-5 mb-5">
@@ -36,7 +36,7 @@ require('header.php');
 		<!-- <p style="font-size: 40px; font-weight: 500">Get in touch</p>
 		<div class="divider mb-4"></div>
 		<p style="font-size: 14px; line-height: 22px">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi </p> -->
-		<img src="assets/img/home9.png" style="width: 100%">
+		<img src="assets/img/home9.jpg" style="width: 100%">
 	</div>
 	<div class="col-md-6">
 		<div style="background-color: #1F2226; width: 100%; height: 100%; padding:20px">
