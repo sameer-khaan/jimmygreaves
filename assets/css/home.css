@@ -78,23 +78,23 @@
     /*background-image: linear-gradient(to bottom, rgb(0 0 0 / 20%) 20%, rgb(0 0 0  / 20%) 100%),url('../img/home8.jpg');*/
     display:flex;
     cursor: pointer;
-    /* transition: background-image 0.6s ease-out; */
     background-size: cover;
     background-position: unset;
 }
 #home_section_3.background1{
     /*background-image: linear-gradient(to bottom, rgb(0 0 0 / 20%) 20%, rgb(0 0 0  / 20%) 100%),url('../img/home8.jpg');*/
-    background-image: url("../img/home8.jpg");
-    /*background-image: linear-gradient(to bottom, rgb(0 0 0 / 20%) 20%, rgb(0 0 0  / 20%) 100%),url('../img/home8.jpg');*/
+    /* background-image: url("../img/home8.jpg"); */
+    animation: sharpen1 0.2s both;
 }
 #home_section_3.background2{
     /*background-image: linear-gradient(to bottom, rgb(0 0 0 / 20%) 20%, rgb(0 0 0  / 20%) 100%),url('../img/home9.jpg');*/
-    background-image: url("../img/home9.jpg");
-    /*background-image: linear-gradient(to bottom, rgb(0 0 0 / 20%) 20%, rgb(0 0 0  / 20%) 100%),url('../img/home9.jpg');*/
+    /* background-image: url("../img/home9.jpg"); */
+    animation: sharpen2 0.2s both;
 }
 #home_section_3.background3{
-    background-image: url("../img/home10.jpg");
     /*background-image: linear-gradient(to bottom, rgb(0 0 0 / 20%) 0%, rgb(0 0 0  / 20%) 100%),url('../img/home10.jpg');*/
+    /* background-image: url("../img/home10.jpg"); */
+    animation: sharpen3 0.2s both;
 }
 #home_section_3 a{
     text-decoration: none !important;

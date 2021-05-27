@@ -8,12 +8,40 @@ require('header.php');
 		0% {
 			background-image: url("assets/img/home1.jpg");
             filter: blur(1px);
-			/* opacity:0.3; */
 		}
 		100% {
 			background-image: url("assets/img/home1.jpg");
             filter: blur(0px);
-			/* opacity:1; */
+		}
+	}
+    @keyframes sharpen1 {
+		0% {
+			background-image: url("assets/img/home8.jpg");
+            filter: blur(1px);
+		}
+		100% {
+			background-image: url("assets/img/home8.jpg");
+            filter: blur(0px);
+		}
+	}
+    @keyframes sharpen2 {
+		0% {
+			background-image: url("assets/img/home9.jpg");
+            filter: blur(1px);
+		}
+		100% {
+			background-image: url("assets/img/home9.jpg");
+            filter: blur(0px);
+		}
+	}
+    @keyframes sharpen3 {
+		0% {
+			background-image: url("assets/img/home10.jpg");
+            filter: blur(1px);
+		}
+		100% {
+			background-image: url("assets/img/home10.jpg");
+            filter: blur(0px);
 		}
 	}
 </style>

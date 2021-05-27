@@ -13,12 +13,10 @@ require('header.php');
 		0% {
 			background-image: url("assets/img/home8.jpg");
             filter: blur(1px);
-			/* opacity:0.3; */
 		}
 		100% {
 			background-image: url("assets/img/home8.jpg");
             filter: blur(0px);
-			/* opacity:1; */
 		}
 	}
 </style>
