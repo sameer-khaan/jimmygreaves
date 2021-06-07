@@ -67,10 +67,13 @@ $("#user_pops").popover({
                   <span id="user_header_name">`+user_name+`</span>
                   <p id="user_header_email">`+user_email+`</p>
                     <a href="myaccount.php" id="user_header_account">My account</a>
-                    <a href="#" id="user_header_signout" style="margin-left:30px">Sign out</a>
+                    <a href="#" id="user_header_signout" style="margin-left:40px">Sign out</a>
                 </div>`;
     }
   }
+});
+$('body').on('mousedown', '.popover', function(e) {
+    e.preventDefault()
 });
 
 $("#sign_up_link").click(function(){

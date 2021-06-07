@@ -58,11 +58,10 @@ if(isset($_SESSION['login_flag']))
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?php echo $site_url?>contact.php">Contact</a></li>
                         <li class="nav-item nav-separate"><span class="nav-link js-scroll-trigger" href="">|</span></li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#contact" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-style="mypops" id="user_pops">
+                            <a class="nav-link js-scroll-trigger" href="javascript://" data-toggle="popover" data-trigger="focus" data-placement="bottom" data-style="mypops" id="user_pops">
                                 <i class="far fa-user"></i>
                             </a>
                         </li>
-
                     </ul>
                 </div>
             </div>

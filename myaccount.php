@@ -1,5 +1,8 @@
 <?php 
 require('header.php');
+if(!isset($_SESSION['login_flag']) || $_SESSION['login_flag']!="1"){
+	redirect($site_url);
+}
 ?>
 <link href="assets/css/myaccount.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
 <title>My Account</title>
@@ -25,11 +28,11 @@ require('header.php');
 	        	<span>Orders</span>
 	        	<ion-icon name="chevron-forward-outline"></ion-icon>
 	        </div>
-	        <div id="left_side_menu">
+	        <!-- <div id="left_side_menu">
 	        	<span>Account</span>
 	        	<ion-icon name="chevron-forward-outline"></ion-icon>
-	        </div>
-	        <a style="font-size: 13px; float: right; margin-top:20px; margin-bottom: 20px">Sign out</a>
+	        </div> -->
+	        <a href="javascript://" style="font-size: 13px; float: right; margin-bottom: 20px" id="user_header_signout">Sign out</a>
 		</div>
 		<div class="col-md-9" style="margin-bottom:30px">
 			<p style="font-size: 28px; color: #343A42; font-weight: 500">Bids</p>

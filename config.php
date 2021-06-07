@@ -7,4 +7,6 @@ else
 {
     $site_url = "https://jimmygreaves.foundation/";
 }
+
+include("functions.php");
 ?>
