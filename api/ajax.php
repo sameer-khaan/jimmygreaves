@@ -160,9 +160,81 @@ if($request=="save_bid"){
 	$user_id = $_POST['user_id'];
 	$bid_amount = $_POST['bid_amount'];
 	$create_time = date("Y-m-d h:i:sa");
+
+	$sql="SELECT * FROM auctions WHERE id='$id'";
+	$result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
 	$sql = "INSERT INTO auction_detail (user_id,auction_id,bid_amount,bid_time,status) VALUES ('".$user_id."','".$id."','".$bid_amount."','".$create_time."','0')";
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
+
+	$subject = "Bid Placed";
+
+	$message = "<html>
+	<head>
+	<title>HTML email</title>
+	</head>
+	<body>
+	<p>Hello ".$_SESSION['user_name']."</p>
+	<p>
+		You bid has been placed successfully. We will get in touch with you soon.
+	</p>
+	<br>
+
+	<p>
+		<b>Auction Item: </b> ".$row['auction_name']."
+	</p>
+	<p>
+		<b>Bid Amount: </b> ".$bid_amount."
+	</p>
+	<br><br>
+
+	<p>Thanks</p>
+	</body>
+	</html>";
+	
+	$admin_message = "<html>
+	<head>
+	<title>HTML email</title>
+	</head>
+	<body>
+	<p>Hello Admin</p>
+	<p>
+		New bid has been placed by ".$_SESSION['user_name']."
+	</p>
+	<br>
+
+	<p>
+		<b>Auction Item: </b> ".$row['auction_name']."
+	</p>
+	<p>
+		<b>Bid Amount: </b> ".$bid_amount."
+	</p>
+	<p>
+		<b>Bidder Name: </b> ".$_SESSION['user_name']."
+	</p>
+	<p>
+		<b>Bidder Email: </b> ".$_SESSION['email']."
+	</p>
+	<br><br>
+
+	<p>Thanks</p>
+	</body>
+	</html>";
+
+	// Always set content-type when sending HTML email
+	$headers = "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+	// More headers
+	$headers .= 'From: '.$_GLOBAL['from_name'].' <'.$_GLOBAL['from_email'].'>' . "\r\n";
+
+	//sent to user
+	mail($_SESSION['email'],$subject,$message,$headers);
+
+	//sent to admin
+	mail($_GLOBAL['admin_email'],$subject,$admin_message,$headers);
+
 	$return['status']=200;
 	$return['id']=$insert_id;
 	echo json_encode($return);
@@ -173,11 +245,88 @@ if($request=="buy_raffle"){
 	$user_id = $_POST['user_id'];
 	$price = $_POST['price'];
 	$buy_amount = $_POST['buy_amount'];
-
 	$create_time = date("Y-m-d h:i:sa");
+
+	$sql="SELECT * FROM raffle WHERE id='$id'";
+	$result = $conn->query($sql);
+    $row = $result->fetch_assoc();
+
 	$sql = "INSERT INTO raffle_detail (user_id,raffle_id,buy_amount,price,buy_time,status) VALUES ('".$user_id."','".$id."','".$buy_amount."','".$price."','".$create_time."','0')";
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
+
+	$subject = "Tickets Bought";
+
+	$message = "<html>
+	<head>
+	<title>HTML email</title>
+	</head>
+	<body>
+	<p>Hello ".$_SESSION['user_name']."</p>
+	<p>
+		You have purchased tickets successfully. We will get in touch with you soon.
+	</p>
+	<br>
+
+	<p>
+		<b>Raffle Item: </b> ".$row['raffle_name']."
+	</p>
+	<p>
+		<b>Total Tickets: </b> ".$buy_amount."
+	</p>
+	<p>
+		<b>Amount Paid: </b> ".$price."
+	</p>
+	<br><br>
+
+	<p>Thanks</p>
+	</body>
+	</html>";
+	
+	$admin_message = "<html>
+	<head>
+	<title>HTML email</title>
+	</head>
+	<body>
+	<p>Hello Admin</p>
+	<p>
+		".$buy_amount." Tickets has been purchased by ".$_SESSION['user_name']."
+	</p>
+	<br>
+
+	<p>
+		<b>Raffle Item: </b> ".$row['raffle_name']."
+	</p>
+	<p>
+		<b>Total Tickets: </b> ".$buy_amount."
+	</p>
+	<p>
+		<b>Amount Paid: </b> ".$price."
+	</p>
+	<p>
+		<b>Buyer Name: </b> ".$_SESSION['user_name']."
+	</p>
+	<p>
+		<b>Buyer Email: </b> ".$_SESSION['email']."
+	</p>
+	<br><br>
+
+	<p>Thanks</p>
+	</body>
+	</html>";
+
+	// Always set content-type when sending HTML email
+	$headers = "MIME-Version: 1.0" . "\r\n";
+	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+	// More headers
+	$headers .= 'From: '.$_GLOBAL['from_name'].' <'.$_GLOBAL['from_email'].'>' . "\r\n";
+
+	//sent to user
+	mail($_SESSION['email'],$subject,$message,$headers);
+
+	//sent to admin
+	mail($_GLOBAL['admin_email'],$subject,$admin_message,$headers);
+
 	$return['status']=200;
 	$return['id']=$insert_id;
 	echo json_encode($return);

@@ -45,10 +45,6 @@ paypal.Button.render({
               $("#signin_modal").modal('show');
             }
             else{
-              if(!expire_flag){
-                  err_msg = "Time is already expired";
-              }
-              
               if (err_msg!=""){
                 swal("Info",err_msg,"info");
               }

@@ -11,6 +11,10 @@ if ($_SERVER["SERVER_NAME"] == "localhost")
 	$password = "123456";
 	$dbname = "jimmy";
     
+    $_GLOBAL['admin_email'] = "sameerkhan5130@gmail.com";
+    $_GLOBAL['from_email'] = "no-reply@jimmygreavesfoundation.com";
+    $_GLOBAL['from_name'] = "JimmyGreavesFoundation";
+
     $conn = new mysqli($servername, $username, $password, $dbname);
 }
 else
@@ -24,6 +28,10 @@ else
     $password = "fqv0pp57umztqf10";
     $dbname = "jimmy";
     $port = 25060;
+
+    $_GLOBAL['admin_email'] = "sameerkhan5130@gmail.com";
+    $_GLOBAL['from_email'] = "no-reply@jimmygreavesfoundation.com";
+    $_GLOBAL['from_name'] = "JimmyGreavesFoundation";
 
     $conn = new mysqli($servername, $username, $password, $dbname, $port);
 }
