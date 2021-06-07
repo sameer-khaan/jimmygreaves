@@ -173,22 +173,21 @@ if($request=="save_bid"){
 
 	$message = "<html>
 	<head>
-	<title>HTML email</title>
+	<title>".$_GLOBAL['from_name']."</title>
 	</head>
 	<body>
 	<p>Hello ".$_SESSION['user_name']."</p>
 	<p>
 		You bid has been placed successfully. We will get in touch with you soon.
 	</p>
-	<br>
 
 	<p>
 		<b>Auction Item: </b> ".$row['auction_name']."
 	</p>
 	<p>
-		<b>Bid Amount: </b> ".$bid_amount."
+		<b>Bid Amount: </b> £".$bid_amount."
 	</p>
-	<br><br>
+	<br>
 
 	<p>Thanks</p>
 	</body>
@@ -196,20 +195,19 @@ if($request=="save_bid"){
 	
 	$admin_message = "<html>
 	<head>
-	<title>HTML email</title>
+	<title>".$_GLOBAL['from_name']."</title>
 	</head>
 	<body>
 	<p>Hello Admin</p>
 	<p>
 		New bid has been placed by ".$_SESSION['user_name']."
 	</p>
-	<br>
 
 	<p>
 		<b>Auction Item: </b> ".$row['auction_name']."
 	</p>
 	<p>
-		<b>Bid Amount: </b> ".$bid_amount."
+		<b>Bid Amount: </b> £".$bid_amount."
 	</p>
 	<p>
 		<b>Bidder Name: </b> ".$_SESSION['user_name']."
@@ -217,7 +215,7 @@ if($request=="save_bid"){
 	<p>
 		<b>Bidder Email: </b> ".$_SESSION['email']."
 	</p>
-	<br><br>
+	<br>
 
 	<p>Thanks</p>
 	</body>
@@ -259,14 +257,13 @@ if($request=="buy_raffle"){
 
 	$message = "<html>
 	<head>
-	<title>HTML email</title>
+	<title>".$_GLOBAL['from_name']."</title>
 	</head>
 	<body>
 	<p>Hello ".$_SESSION['user_name']."</p>
 	<p>
 		You have purchased tickets successfully. We will get in touch with you soon.
 	</p>
-	<br>
 
 	<p>
 		<b>Raffle Item: </b> ".$row['raffle_name']."
@@ -275,9 +272,9 @@ if($request=="buy_raffle"){
 		<b>Total Tickets: </b> ".$buy_amount."
 	</p>
 	<p>
-		<b>Amount Paid: </b> ".$price."
+		<b>Amount Paid: £</b> ".$price."
 	</p>
-	<br><br>
+	<br>
 
 	<p>Thanks</p>
 	</body>
@@ -285,14 +282,13 @@ if($request=="buy_raffle"){
 	
 	$admin_message = "<html>
 	<head>
-	<title>HTML email</title>
+	<title>".$_GLOBAL['from_name']."</title>
 	</head>
 	<body>
 	<p>Hello Admin</p>
 	<p>
 		".$buy_amount." Tickets has been purchased by ".$_SESSION['user_name']."
 	</p>
-	<br>
 
 	<p>
 		<b>Raffle Item: </b> ".$row['raffle_name']."
@@ -301,7 +297,7 @@ if($request=="buy_raffle"){
 		<b>Total Tickets: </b> ".$buy_amount."
 	</p>
 	<p>
-		<b>Amount Paid: </b> ".$price."
+		<b>Amount Paid: £</b> ".$price."
 	</p>
 	<p>
 		<b>Buyer Name: </b> ".$_SESSION['user_name']."
@@ -309,7 +305,7 @@ if($request=="buy_raffle"){
 	<p>
 		<b>Buyer Email: </b> ".$_SESSION['email']."
 	</p>
-	<br><br>
+	<br>
 
 	<p>Thanks</p>
 	</body>
