@@ -72,7 +72,6 @@ paypal.Button.render({
         // Execute the payment
         onAuthorize: function(data, actions) {
           return actions.payment.execute().then(function() {
-            var p_count = $("#select_bid_amount").val();
 
             $.ajax({
               url:"api/ajax.php",
@@ -88,10 +87,28 @@ paypal.Button.render({
                 console.log(re);
                 var result = JSON.parse(re);
                 if(result['status']=="200"){
-                  swal("Success","Successfully Donated","success");
+
+                  var data = {
+                    service_id: YOUR_SERVICE_ID,
+                    template_id: DONATION_TEMP_ID,
+                    user_id: YOUR_USER_ID,
+                    template_params: result['data']
+                  };
+  
+                  $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json'
+                  }).done(function() {
+                    console.log('Your mail is sent!');
+                    swal("Success","Successfully Donated","success");
+                  }).fail(function(error) {
+                    console.log('Oops... ' + JSON.stringify(error));
+                    swal("Success","Successfully Donated","success");
+                  });
                 }
               }
-        });  
+            });
           });
         }
       }, '#paypal-button');

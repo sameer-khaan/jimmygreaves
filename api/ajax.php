@@ -180,72 +180,6 @@ if($request=="save_bid"){
 		'bidAmount' => $bid_amount
 	);
 
-	/*
-	$subject = "Bid Placed";
-
-	$message = "<html>
-	<head>
-	<title>".$_GLOBAL['from_name']."</title>
-	</head>
-	<body>
-	<p>Hello ".$rowUser['fullname']."</p>
-	<p>
-		You bid has been placed successfully. We will get in touch with you soon.
-	</p>
-
-	<p>
-		<b>Auction Item: </b> ".$rowRes['auction_name']."
-	</p>
-	<p>
-		<b>Bid Amount: </b> £".$bid_amount."
-	</p>
-	<br>
-
-	<p>Thanks</p>
-	</body>
-	</html>";
-	
-	$admin_message = "<html>
-	<head>
-	<title>".$_GLOBAL['from_name']."</title>
-	</head>
-	<body>
-	<p>Hello Admin</p>
-	<p>
-		New bid has been placed by ".$rowUser['fullname']."
-	</p>
-
-	<p>
-		<b>Auction Item: </b> ".$rowRes['auction_name']."
-	</p>
-	<p>
-		<b>Bid Amount: </b> £".$bid_amount."
-	</p>
-	<p>
-		<b>Bidder Name: </b> ".$rowUser['fullname']."
-	</p>
-	<p>
-		<b>Bidder Email: </b> ".$rowUser['email']."
-	</p>
-	<br>
-
-	<p>Thanks</p>
-	</body>
-	</html>";
-
-	// Always set content-type when sending HTML email
-	$headers = "MIME-Version: 1.0" . "\r\n";
-	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-	// More headers
-	$headers .= 'From: '.$_GLOBAL['from_name'].' <'.$_GLOBAL['from_email'].'>' . "\r\n";
-
-	//sent to user
-	//mail($rowUser['email'],$subject,$message,$headers);
-
-	//sent to admin
-	//mail($_GLOBAL['admin_email'],$subject,$admin_message,$headers);
-	*/
-
 	$return['status']=200;
 	$return['id']=$insert_id;
 	$return['data']=$data;
@@ -280,78 +214,6 @@ if($request=="buy_raffle"){
 		'amountPaid' => $price*$buy_amount
 	);
 
-	/*
-	$subject = "Tickets Bought";
-
-	$message = "<html>
-	<head>
-	<title>".$_GLOBAL['from_name']."</title>
-	</head>
-	<body>
-	<p>Hello ".$rowUser['fullname']."</p>
-	<p>
-		You have purchased tickets successfully. We will get in touch with you soon.
-	</p>
-
-	<p>
-		<b>Raffle Item: </b> ".$rowRes['raffle_name']."
-	</p>
-	<p>
-		<b>Total Tickets: </b> ".$buy_amount."
-	</p>
-	<p>
-		<b>Amount Paid: £</b> ".$price."
-	</p>
-	<br>
-
-	<p>Thanks</p>
-	</body>
-	</html>";
-	
-	$admin_message = "<html>
-	<head>
-	<title>".$_GLOBAL['from_name']."</title>
-	</head>
-	<body>
-	<p>Hello Admin</p>
-	<p>
-		".$buy_amount." Tickets has been purchased by ".$rowUser['fullname']."
-	</p>
-
-	<p>
-		<b>Raffle Item: </b> ".$rowRes['raffle_name']."
-	</p>
-	<p>
-		<b>Total Tickets: </b> ".$buy_amount."
-	</p>
-	<p>
-		<b>Amount Paid: £</b> ".$price."
-	</p>
-	<p>
-		<b>Buyer Name: </b> ".$rowUser['fullname']."
-	</p>
-	<p>
-		<b>Buyer Email: </b> ".$rowUser['email']."
-	</p>
-	<br>
-
-	<p>Thanks</p>
-	</body>
-	</html>";
-
-	// Always set content-type when sending HTML email
-	$headers = "MIME-Version: 1.0" . "\r\n";
-	$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-	// More headers
-	$headers .= 'From: '.$_GLOBAL['from_name'].' <'.$_GLOBAL['from_email'].'>' . "\r\n";
-
-	//sent to user
-	//mail($rowUser['email'],$subject,$message,$headers);
-
-	//sent to admin
-	//mail($_GLOBAL['admin_email'],$subject,$admin_message,$headers);
-	*/
-
 	$return['status']=200;
 	$return['id']=$insert_id;
 	$return['data']=$data;
@@ -363,23 +225,28 @@ if($request=="buy_donate"){
 	$price = $_POST['price'];
 	$create_time = date("Y-m-d h:i:sa");
 
+	$sql="SELECT * FROM user WHERE id='$user_id'";
+	$result = $conn->query($sql);
+    $rowUser = $result->fetch_assoc();
+
 	$sql = "INSERT INTO donate (user_id,amount,create_time,status) VALUES ('".$user_id."','".$price."','".$create_time."','0')";
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
+
+	$data = array(
+		'userName' => $rowUser['fullname'],
+		'userEmail' => $rowUser['email'],
+		'amountPaid' => $price
+	);
+
 	$return['status']=200;
 	$return['id']=$insert_id;
+	$return['data']=$data;
 	echo json_encode($return);
 }
 
 
-
-
-
-
-
-
 //raffle
-
 if($request=="get_raffles"){
 	// $sql="SELECT * FROM raffle";
 	$sql="SELECT r.*, IFNULL(d.buyer_cnt, 0) AS buyer_count, IFNULL(e.ticket_cnt, 0) AS ticket_sold FROM raffle r LEFT JOIN (SELECT raffle_id, COUNT(raffle_id) AS buyer_cnt FROM raffle_detail GROUP BY raffle_id) d ON r.id = d.raffle_id LEFT JOIN (SELECT raffle_id, SUM(buy_amount) AS ticket_cnt FROM raffle_detail GROUP BY raffle_id) e ON r.id = e.raffle_id";

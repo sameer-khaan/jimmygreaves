@@ -41,6 +41,7 @@ if(isset($_SESSION['login_flag']))
           var YOUR_SERVICE_ID = 'service_6he6riw';
           var RAFFLE_TEMP_ID = 'template_hyh70tp';
           var AUCTION_TEMP_ID = 'template_9o7iz1g';
+          var DONATION_TEMP_ID = 'template_9wn313k';
           var YOUR_USER_ID = 'user_xi7mUaoVTXsI7vhIe8BZn';
         </script>
     </head>
