@@ -120,7 +120,7 @@ paypal.Button.render({
           }
           else{
             if(!expire_flag){
-                err_msg = "Time is already expired";
+                //err_msg = "Time is already expired";
             }
             
             if (err_msg!=""){
@@ -164,13 +164,30 @@ paypal.Button.render({
               type: 'post',
               success: function(re)
               {
-                console.log(re);
                 var result = JSON.parse(re);
                 if(result['status']=="200"){
-                    swal("Success","Successfully buyed","success");
+  
+                  var data = {
+                    service_id: YOUR_SERVICE_ID,
+                    template_id: RAFFLE_TEMP_ID,
+                    user_id: YOUR_USER_ID,
+                    template_params: result['data']
+                  };
+  
+                  $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json'
+                  }).done(function() {
+                    console.log('Your mail is sent!');
+                    swal("Success","Successfully Bought","success");
+                  }).fail(function(error) {
+                    console.log('Oops... ' + JSON.stringify(error));
+                    swal("Success","Successfully Bought","success");
+                  });
                 }
               }
-        });  
+            });
           });
         }
       }, '#paypal-button');

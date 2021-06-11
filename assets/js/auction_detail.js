@@ -150,9 +150,29 @@ $(".bid_button").click(function(){
                 {
                   var result = JSON.parse(re);
                   if(result['status']=="200"){
-                      swal("Success","Successfully submit your bid","success");
-                      get_auction_by_id();
-                      get_biders();
+
+                    var data = {
+                      service_id: YOUR_SERVICE_ID,
+                      template_id: AUCTION_TEMP_ID,
+                      user_id: YOUR_USER_ID,
+                      template_params: result['data']
+                    };
+  
+                    $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+                      type: 'POST',
+                      data: JSON.stringify(data),
+                      contentType: 'application/json'
+                    }).done(function() {
+                        console.log('Your mail is sent!');
+                        swal("Success","Successfully submit your bid","success");
+                        get_auction_by_id();
+                        get_biders();
+                    }).fail(function(error) {
+                        console.log('Oops... ' + JSON.stringify(error));
+                        swal("Success","Successfully submit your bid","success");
+                        get_auction_by_id();
+                        get_biders();
+                    });
                   }
                 }
           });     

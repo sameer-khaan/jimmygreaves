@@ -88,7 +88,7 @@ paypal.Button.render({
                 console.log(re);
                 var result = JSON.parse(re);
                 if(result['status']=="200"){
-                    swal("Success","Successfully donated","success");
+                  swal("Success","Successfully Donated","success");
                 }
               }
         });  

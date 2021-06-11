@@ -161,14 +161,26 @@ if($request=="save_bid"){
 	$bid_amount = $_POST['bid_amount'];
 	$create_time = date("Y-m-d h:i:sa");
 
+	$sql="SELECT * FROM user WHERE id='$user_id'";
+	$result = $conn->query($sql);
+    $rowUser = $result->fetch_assoc();
+
 	$sql="SELECT * FROM auctions WHERE id='$id'";
 	$result = $conn->query($sql);
-    $row = $result->fetch_assoc();
+    $rowRes = $result->fetch_assoc();
 
 	$sql = "INSERT INTO auction_detail (user_id,auction_id,bid_amount,bid_time,status) VALUES ('".$user_id."','".$id."','".$bid_amount."','".$create_time."','0')";
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
 
+	$data = array(
+		'userName' => $rowUser['fullname'],
+		'userEmail' => $rowUser['email'],
+		'auctionName' => $rowRes['auction_name'],
+		'bidAmount' => $bid_amount
+	);
+
+	/*
 	$subject = "Bid Placed";
 
 	$message = "<html>
@@ -176,13 +188,13 @@ if($request=="save_bid"){
 	<title>".$_GLOBAL['from_name']."</title>
 	</head>
 	<body>
-	<p>Hello ".$_SESSION['user_name']."</p>
+	<p>Hello ".$rowUser['fullname']."</p>
 	<p>
 		You bid has been placed successfully. We will get in touch with you soon.
 	</p>
 
 	<p>
-		<b>Auction Item: </b> ".$row['auction_name']."
+		<b>Auction Item: </b> ".$rowRes['auction_name']."
 	</p>
 	<p>
 		<b>Bid Amount: </b> £".$bid_amount."
@@ -200,20 +212,20 @@ if($request=="save_bid"){
 	<body>
 	<p>Hello Admin</p>
 	<p>
-		New bid has been placed by ".$_SESSION['user_name']."
+		New bid has been placed by ".$rowUser['fullname']."
 	</p>
 
 	<p>
-		<b>Auction Item: </b> ".$row['auction_name']."
+		<b>Auction Item: </b> ".$rowRes['auction_name']."
 	</p>
 	<p>
 		<b>Bid Amount: </b> £".$bid_amount."
 	</p>
 	<p>
-		<b>Bidder Name: </b> ".$_SESSION['user_name']."
+		<b>Bidder Name: </b> ".$rowUser['fullname']."
 	</p>
 	<p>
-		<b>Bidder Email: </b> ".$_SESSION['email']."
+		<b>Bidder Email: </b> ".$rowUser['email']."
 	</p>
 	<br>
 
@@ -228,13 +240,15 @@ if($request=="save_bid"){
 	$headers .= 'From: '.$_GLOBAL['from_name'].' <'.$_GLOBAL['from_email'].'>' . "\r\n";
 
 	//sent to user
-	mail($_SESSION['email'],$subject,$message,$headers);
+	//mail($rowUser['email'],$subject,$message,$headers);
 
 	//sent to admin
-	mail($_GLOBAL['admin_email'],$subject,$admin_message,$headers);
+	//mail($_GLOBAL['admin_email'],$subject,$admin_message,$headers);
+	*/
 
 	$return['status']=200;
 	$return['id']=$insert_id;
+	$return['data']=$data;
 	echo json_encode($return);
 }
 
@@ -245,14 +259,28 @@ if($request=="buy_raffle"){
 	$buy_amount = $_POST['buy_amount'];
 	$create_time = date("Y-m-d h:i:sa");
 
+	$sql="SELECT * FROM user WHERE id='$user_id'";
+	$result = $conn->query($sql);
+    $rowUser = $result->fetch_assoc();
+
 	$sql="SELECT * FROM raffle WHERE id='$id'";
 	$result = $conn->query($sql);
-    $row = $result->fetch_assoc();
+    $rowRes = $result->fetch_assoc();
 
 	$sql = "INSERT INTO raffle_detail (user_id,raffle_id,buy_amount,price,buy_time,status) VALUES ('".$user_id."','".$id."','".$buy_amount."','".$price."','".$create_time."','0')";
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
 
+	$data = array(
+		'userName' => $rowUser['fullname'],
+		'userEmail' => $rowUser['email'],
+		'raffleName' => $rowRes['raffle_name'],
+		'totalTickets' => $buy_amount,
+		'buyAmount' => $price*1,
+		'amountPaid' => $price*$buy_amount
+	);
+
+	/*
 	$subject = "Tickets Bought";
 
 	$message = "<html>
@@ -260,13 +288,13 @@ if($request=="buy_raffle"){
 	<title>".$_GLOBAL['from_name']."</title>
 	</head>
 	<body>
-	<p>Hello ".$_SESSION['user_name']."</p>
+	<p>Hello ".$rowUser['fullname']."</p>
 	<p>
 		You have purchased tickets successfully. We will get in touch with you soon.
 	</p>
 
 	<p>
-		<b>Raffle Item: </b> ".$row['raffle_name']."
+		<b>Raffle Item: </b> ".$rowRes['raffle_name']."
 	</p>
 	<p>
 		<b>Total Tickets: </b> ".$buy_amount."
@@ -287,11 +315,11 @@ if($request=="buy_raffle"){
 	<body>
 	<p>Hello Admin</p>
 	<p>
-		".$buy_amount." Tickets has been purchased by ".$_SESSION['user_name']."
+		".$buy_amount." Tickets has been purchased by ".$rowUser['fullname']."
 	</p>
 
 	<p>
-		<b>Raffle Item: </b> ".$row['raffle_name']."
+		<b>Raffle Item: </b> ".$rowRes['raffle_name']."
 	</p>
 	<p>
 		<b>Total Tickets: </b> ".$buy_amount."
@@ -300,10 +328,10 @@ if($request=="buy_raffle"){
 		<b>Amount Paid: £</b> ".$price."
 	</p>
 	<p>
-		<b>Buyer Name: </b> ".$_SESSION['user_name']."
+		<b>Buyer Name: </b> ".$rowUser['fullname']."
 	</p>
 	<p>
-		<b>Buyer Email: </b> ".$_SESSION['email']."
+		<b>Buyer Email: </b> ".$rowUser['email']."
 	</p>
 	<br>
 
@@ -318,13 +346,15 @@ if($request=="buy_raffle"){
 	$headers .= 'From: '.$_GLOBAL['from_name'].' <'.$_GLOBAL['from_email'].'>' . "\r\n";
 
 	//sent to user
-	mail($_SESSION['email'],$subject,$message,$headers);
+	//mail($rowUser['email'],$subject,$message,$headers);
 
 	//sent to admin
-	mail($_GLOBAL['admin_email'],$subject,$admin_message,$headers);
+	//mail($_GLOBAL['admin_email'],$subject,$admin_message,$headers);
+	*/
 
 	$return['status']=200;
 	$return['id']=$insert_id;
+	$return['data']=$data;
 	echo json_encode($return);
 }
 

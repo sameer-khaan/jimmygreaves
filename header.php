@@ -36,7 +36,15 @@ if(isset($_SESSION['login_flag']))
 
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="assets/css/styles.css" rel="stylesheet" />
+
+        <script type="text/javascript">
+          var YOUR_SERVICE_ID = 'service_6he6riw';
+          var RAFFLE_TEMP_ID = 'template_hyh70tp';
+          var AUCTION_TEMP_ID = 'template_9o7iz1g';
+          var YOUR_USER_ID = 'user_xi7mUaoVTXsI7vhIe8BZn';
+        </script>
     </head>
+
     <body id="page-top">
         <!-- Navigation-->
         <div class="loading-gif"></div>
