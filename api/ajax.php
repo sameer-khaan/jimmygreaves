@@ -69,6 +69,33 @@ if($request=="get_biders"){
 	echo json_encode($return);
 }
 
+if($request=="get_biders_user"){
+	$user_id = $_POST['user_id'];
+	$sql="SELECT u.fullname, u.email, a.*, (SELECT count(*) FROM auction_detail auc WHERE auc.auction_id=d.auction_id) as 'total_bids', d.bid_amount 
+			FROM user u, auction_detail d, auctions a 
+				WHERE u.id=d.user_id 
+				AND d.auction_id=a.id 
+				AND d.id = (SELECT MAX(id) FROM auction_detail WHERE auction_detail.auction_id = d.auction_id)
+				AND d.user_id='$user_id'
+				GROUP BY d.auction_id";
+
+	$result = $conn->query($sql);
+    $rows = array();
+	if($result->num_rows != 0)
+	{
+		while ($row = $result -> fetch_assoc()) {
+	       $rows[] = $row;
+	    }
+		$return['status']=200;
+		$return['data']=$rows;
+	}	 
+	else{
+		$return['status']=201;
+		$return['message']="No bids placed yet";
+	}
+	echo json_encode($return);
+}
+
 if($request=="get_buyers"){
 	$id = $_POST['id'];
 	$sql="
@@ -87,6 +114,31 @@ if($request=="get_buyers"){
 	else{
 		$return['status']=201;
 		$return['message']="There is no result";
+	}
+	echo json_encode($return);
+}
+
+if($request=="get_buyers_user"){
+	$user_id = $_POST['user_id'];
+	$sql="SELECT u.fullname, u.email, a.*, d.buy_amount, d.price 
+			FROM user u, raffle_detail d, raffle a 
+				WHERE u.id=d.user_id 
+				AND d.raffle_id=a.id 
+				AND d.user_id='$user_id'";
+
+	$result = $conn->query($sql);
+    $rows = array();
+	if($result->num_rows != 0)
+	{
+		while ($row = $result -> fetch_assoc()) {
+	       $rows[] = $row;
+	    }
+		$return['status']=200;
+		$return['data']=$rows;
+	}	 
+	else{
+		$return['status']=201;
+		$return['message']="No tickets bought yet";
 	}
 	echo json_encode($return);
 }

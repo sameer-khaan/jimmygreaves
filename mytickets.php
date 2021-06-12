@@ -39,7 +39,7 @@ if(!isset($_SESSION['login_flag']) || $_SESSION['login_flag']!="1"){
 	        <a href="javascript://" style="font-size: 13px; float: right; margin-bottom: 20px" id="user_header_signout">Sign out</a>
 		</div>
 		<div class="col-md-9" style="margin-bottom:30px">
-			<p style="font-size: 28px; color: #343A42; font-weight: 500">My Bids</p>
+			<p style="font-size: 28px; color: #343A42; font-weight: 500">My Tickets</p>
 			<div id="bids_div" class="row">
 				<!-- <div class="row">
 					<img class="col-md-3" src="assets/img/auction2.png" />
@@ -52,12 +52,12 @@ if(!isset($_SESSION['login_flag']) || $_SESSION['login_flag']!="1"){
 						<p></p>
 						<div class="row">
 							<div class="col-6 col-md-4">
-								<p style="font-size:16px">Bid Amount:</p>
-								<p>50</p>
+								<p style="font-size:18px">Amount Paid:</p>
+								<p>£50</p>
 							</div>
 							<div class="col-6 col-md-4">
-								<p style="font-size:16px">Current bid:</p>
-								<p>50</p>
+								<p style="font-size:18px">Tickets Bought:</p>
+								<p>3</p>
 							</div>
 						</div>
 					</div>
@@ -65,22 +65,6 @@ if(!isset($_SESSION['login_flag']) || $_SESSION['login_flag']!="1"){
 			</div>
 		</div>
 	</div>
-</div>
-
-<div class="modal" id="bid_status_modal" tabindex="-1" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title bid_count" id="exampleModalLabel"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="current_bids_div">
-	         
-      </div>
-    </div>
-  </div>
 </div>
 
 <?php
@@ -97,7 +81,7 @@ require('footer.php');
 		$.ajax({
 			url:"api/ajax.php",
 			data: { 
-				request:'get_biders_user',
+				request:'get_buyers_user',
 				user_id:user_id
 			},
 			type: 'post',
@@ -127,13 +111,22 @@ require('footer.php');
 						expire_flag = days>0 ? true : false;
 						images = JSON.parse(data[i]['image']);
 						string+=`<div class="row mb-5">
-									<img class="col-md-3" src="api/upload/auction/`+data[i]['id']+`/`+images[0]+`" />
+									<img class="col-md-3" src="api/upload/raffle/`+data[i]['id']+`/`+images[0]+`" />
 									<div class="col-md-9">
-										<p>`+data[i]['auction_name']+`</p>
-										<p>£`+data[i]['bid_amount']+`</p>
+										<p>`+data[i]['raffle_name']+`</p>
 										<div id="status">
-											<span class="bid_count bid_status" data-auction_id="`+data[i]['id']+`">`+data[i]['total_bids']+` bids</span>
 											<span id="timer"> <ion-icon name="alarm-outline"></ion-icon> `+expir_date+`</span>
+										</div>
+										<p></p>
+										<div class="row">
+											<div class="col-6 col-md-4">
+												<p style="font-size:18px" class="m-0">Amount Paid:</p>
+												<p>£`+data[i]['price']+`</p>
+											</div>
+											<div class="col-6 col-md-4">
+												<p style="font-size:18px" class="m-0">Tickets Bought:</p>
+												<p>`+data[i]['buy_amount']+`</p>
+											</div>
 										</div>
 									</div>
 								</div>`;
@@ -151,41 +144,6 @@ require('footer.php');
 			}
 	    }); 
 	}
-
-	$(".bid_status").click(function(){
-		var id = $(this).data('auction_id');
-		$.ajax({
-			url:"api/ajax.php",
-			data: {
-				request:'get_biders',
-				id:id
-			},
-			async:false,
-			type: 'post',
-			success: function(re) 
-			{
-				var result = JSON.parse(re);
-				if(result['status']=="200"){
-					$(".bid_count").html(result['data'].length+" bids");
-					var string = "";
-					for(var i=0; i<result['data'].length; i++){
-						string +=`<div>
-									<p id="bid_amount_modal">£`+result['data'][i]['bid_amount']+`</p>
-									<p id="bid_time">`+result['data'][i]['bid_time']+`</p>
-								</div>`;
-						if(max_bid_amount<result['data'][i]['bid_amount'])
-							max_bid_amount=result['data'][i]['bid_amount'];
-					}
-					$("#current_bids_div").html(string);
-					$("#bid_status_modal").modal('show');
-				}
-				else{
-					$(".bid_count").html("0 bids");
-					$("#bid_status_modal").modal('show');
-				}
-			}
-		});
-	});
 </script>
 
 <script src="assets/js/three_hover.js"></script>

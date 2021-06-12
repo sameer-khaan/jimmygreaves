@@ -39,15 +39,12 @@ function get_auction_by_id(){
               // var year = end_date.getFullYear();
               var day = end_date.getDate();
               var to  = day+" "+month;
-
-                    var end_hour = end_date.getHours();
-                    var end_min  = end_date.getMinutes();
-                    var pm_am = end_hour>=12 ? 'PM' : 'AM';
-                    var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
+              var end_hour = end_date.getHours();
+              var end_min  = end_date.getMinutes();
+              var pm_am = end_hour>=12 ? 'PM' : 'AM';
+              var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
               expire_flag = days>0 ? true : false;
               $("#left_time").html(expir_date);
-            }
-            else{
             }
           }
     });     

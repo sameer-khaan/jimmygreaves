@@ -59,29 +59,28 @@ require('../footer.php');
 		$.ajax({
 	      url:"<?php echo $site_url?>api/ajax.php",
 	      data: { 
-	      		request:'get_biders',
+	      	request:'get_biders',
             id:id
-	         },
+	      },
 	      type: 'post',
 	      success: function(re) 
 	      {
 	        var result = JSON.parse(re);
 	        if(result['status']=="200"){
-    				var data = result['data'];
-    				biders = data;
-    				var string = "";
-    				for(var i=0; i<data.length; i++){
-    				  string+=`<tr>
-                          <td>`+data[i]['fullname']+`</td>
-                          <td>`+data[i]['email']+`</td>
-                          <td>`+data[i]['bid_time']+`</td>
-                          <td>`+data[i]['bid_amount']+`</td>
-
-                       </tr>
-                      `;
-    				}
-    			  $("tbody").html(string);
-          }
+                var data = result['data'];
+                biders = data;
+                var string = "";
+                for(var i=0; i<data.length; i++){
+                    string+=`<tr>
+                        <td>`+data[i]['fullname']+`</td>
+                        <td>`+data[i]['email']+`</td>
+                        <td>`+data[i]['bid_time']+`</td>
+                        <td>`+data[i]['bid_amount']+`</td>
+                    </tr>
+                    `;
+                }
+                $("tbody").html(string);
+            }
 	      }
 	    }); 
 	}

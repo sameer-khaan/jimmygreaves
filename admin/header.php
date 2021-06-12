@@ -12,6 +12,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A premium admin dashboard template by Mannatthemes" name="description" />
         <meta content="Mannatthemes" name="author" />
+        <title>Admin Panel</title>
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <link href="assets/plugins/summernote/summernote-bs4.css" rel="stylesheet" />
         <link href="<?php echo $site_url?>admin/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
