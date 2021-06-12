@@ -75,7 +75,7 @@ if($request=="get_biders_user"){
 			FROM user u, auction_detail d, auctions a 
 				WHERE u.id=d.user_id 
 				AND d.auction_id=a.id 
-				AND d.id = (SELECT MAX(id) FROM auction_detail WHERE auction_detail.auction_id = d.auction_id)
+				AND d.id = (SELECT MAX(id) FROM auction_detail WHERE auction_detail.auction_id = d.auction_id AND auction_detail.user_id=d.user_id)
 				AND d.user_id='$user_id'
 				GROUP BY d.auction_id";
 
