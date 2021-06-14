@@ -71,7 +71,7 @@ if($request=="get_biders"){
 
 if($request=="get_biders_user"){
 	$user_id = $_POST['user_id'];
-	$sql="SELECT u.fullname, u.email, a.*, (SELECT count(*) FROM auction_detail auc WHERE auc.auction_id=d.auction_id) as 'total_bids', d.bid_amount 
+	$sql="SELECT a.*, d.bid_amount, (SELECT count(*) FROM auction_detail auc WHERE auc.auction_id=d.auction_id) as 'total_bids', (SELECT MAX(bid_amount) FROM auction_detail auc WHERE auc.auction_id=d.auction_id) as 'max_amount' 
 			FROM user u, auction_detail d, auctions a 
 				WHERE u.id=d.user_id 
 				AND d.auction_id=a.id 

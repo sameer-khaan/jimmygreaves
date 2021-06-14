@@ -126,11 +126,19 @@ require('footer.php');
 						var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
 						expire_flag = days>0 ? true : false;
 						images = JSON.parse(data[i]['image']);
+						if(data[i]['bid_amount'] == data[i]['max_amount']) {
+							var tag = `<p class="btn btn-sm btn-success mx-5" style="font-size:15px;"> Currently winning </p>`;
+						} else {
+							var tag = `<p class="btn btn-sm btn-primary mx-5" style="font-size:15px;"> You've been outbid </p>`;
+						}
 						string+=`<div class="row mb-5">
 									<img class="col-md-3" src="api/upload/auction/`+data[i]['id']+`/`+images[0]+`" />
 									<div class="col-md-9">
 										<p>`+data[i]['auction_name']+`</p>
-										<p>£`+data[i]['bid_amount']+`</p>
+										<div id="status">
+											<p>£`+data[i]['bid_amount']+`</p>
+											`+tag+`
+										</div>
 										<div id="status">
 											<span class="bid_count bid_status" data-auction_id="`+data[i]['id']+`">`+data[i]['total_bids']+` bids</span>
 											<span id="timer"> <ion-icon name="alarm-outline"></ion-icon> `+expir_date+`</span>
