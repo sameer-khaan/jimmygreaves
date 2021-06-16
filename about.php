@@ -16,6 +16,36 @@ require('header.php');
             filter: blur(0px);
 		}
 	}
+    @keyframes sharpen1 {
+		0% {
+			background-image: url("assets/img/home8.jpg");
+            filter: blur(1px);
+		}
+		100% {
+			background-image: url("assets/img/home8.jpg");
+            filter: blur(0px);
+		}
+	}
+    @keyframes sharpen2 {
+		0% {
+			background-image: url("assets/img/home9.jpg");
+            filter: blur(1px);
+		}
+		100% {
+			background-image: url("assets/img/home9.jpg");
+            filter: blur(0px);
+		}
+	}
+    @keyframes sharpen3 {
+		0% {
+			background-image: url("assets/img/home10.jpg");
+            filter: blur(1px);
+		}
+		100% {
+			background-image: url("assets/img/home10.jpg");
+            filter: blur(0px);
+		}
+	}
 </style>
 
 
