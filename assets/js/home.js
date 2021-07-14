@@ -1,12 +1,22 @@
 $("#mainNav").removeClass("navbar-scrolled");
 var navbarCollapse = function() {
+    var x = window.matchMedia("(max-width: 991px)");
+    console.log(x.matches);
     if ($("#mainNav").offset().top > 100) {
       $("#mainNav").addClass("navbar-scrolled");
-      $("#mainNav .navbar-brand img").attr('src','assets/img/logo2.png');
+      if (x.matches) {
+        $("#mainNav .navbar-brand img").attr('src','assets/img/logo2.png');
+      } else {
+        $("#mainNav .navbar-brand img").attr('src','assets/img/logo2.png');
+      }
     } else {
       $("#mainNav").removeClass("navbar-scrolled");
-      $("#mainNav .navbar-brand img").attr('src','assets/img/logo1.png');
+      if (x.matches) {
+        $("#mainNav .navbar-brand img").attr('src','assets/img/logo2.png');
+      } else {
+        $("#mainNav .navbar-brand img").attr('src','assets/img/logo1.png');
+      }
     }
-  };
+};
 navbarCollapse();
 $(window).scroll(navbarCollapse);

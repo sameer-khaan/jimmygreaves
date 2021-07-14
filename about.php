@@ -135,7 +135,7 @@ require('header.php');
     <div id="home_section_3">
         <div style="background-color: rgba(0,0,0,0.2); width: 100%; display: flex">
 
-        <a href="<?php echo $site_url?>auction.php" style="width: 33.333333%">
+        <a href="<?php echo $site_url?>auction.php">
             <div class="three_hover_div" id="1">
                 <p id="header">Auction</p>
                 <div class="bottom_boder"></div>
@@ -147,7 +147,7 @@ require('header.php');
                 </div>
             </div>
         </a>
-        <a href="<?php echo $site_url?>raffle.php" style="width: 33.333333%">
+        <a href="<?php echo $site_url?>raffle.php">
             <div class=" three_hover_div" id="2">
                 <p id="header">Raffle</p>
                 <div class="bottom_boder"></div>
@@ -159,7 +159,7 @@ require('header.php');
                 </div>
             </div>
         </a>
-        <a href="<?php echo $site_url?>donate.php" target="_blank" style="width: 33.333333%">
+        <a href="<?php echo $site_url?>donate.php">
             <div class=" three_hover_div" id="3">
                 <p id="header">Donate</p>
                 <div class="bottom_boder"></div>
