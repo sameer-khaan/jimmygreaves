@@ -4,7 +4,7 @@
 	$name= $_GET['n'];
 ?>
 <link href="assets/css/raffle_detail.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
-<link rel="stylesheet"  href="assets/css/lightslider.css"/>
+<link rel="stylesheet" href="assets/css/lightslider.css"/>
 
 <title>Raffle Detail</title>
 
@@ -22,12 +22,9 @@
 		        <div class="item">            
 		            <div class="clearfix" style="max-width:474px;">
 		                <ul id="image-gallery" class="gallery list-unstyled cS-hidden">
-		                   
 		                </ul>
 		            </div>
 		        </div>
-		       
-
 		    </div>	
 		</div>
 		<div class="col-md-7">
@@ -82,6 +79,27 @@
 		</div>
 	</div>
 </div>
+
+<div id="myModal" class="modal">
+	<div class="modal-content">
+		<div>
+			<button type="button" class="close" onclick="closeModal()" style="padding: 10px 15px;position: absolute;right: 0;">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div>
+			<div id="model-image-gallery">
+			</div>
+			
+			<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+			<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+			<div id="bottom-image-gallery">
+			</div>
+		</div>
+	</div>
+</div>
+
 <?php
 require('footer.php');
 ?>

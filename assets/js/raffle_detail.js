@@ -20,15 +20,30 @@ function get_auction_by_id(){
               raffle_data = result['data'];
               images = JSON.parse(result['data']['image']);
               var image_gallery_string = "";
+              var model_image_gallery = "";
+              var bottom_image_gallery = "";
               for(var i=0; i<images.length; i++){
+                var n = i + 1;
                 image_gallery_string+=`<li data-thumb="api/upload/raffle/`+id+`/`+images[i]+`"> 
-                                            <img style="height:300px" src="api/upload/raffle/`+id+`/`+images[i]+`" />
+                                            <img style="width:300px" src="api/upload/raffle/`+id+`/`+images[i]+`" onclick="openModal();currentSlide(`+n+`)" class="hover-shadow cursor" />
                                        </li>`;
+
+                model_image_gallery+=`<div class="mySlides">
+                                       <div class="numbertext">`+n+` / `+images.length+`</div>
+                                       <img src="api/upload/raffle/`+id+`/`+images[i]+`">
+                                     </div>`;
+
+                bottom_image_gallery+=`<div class="column">
+                                         <img class="demo cursor" src="api/upload/raffle/`+id+`/`+images[i]+`" onclick="currentSlide(`+n+`)">
+                                       </div>`;
               }
               $("#terms_text").html(result['data']['terms']);
               $("#desc_text").html(result['data']['description']);
               $("#delivery_text").html(result['data']['delivery']);
               $("#image-gallery").html(image_gallery_string);
+              $("#model-image-gallery").html(model_image_gallery);
+              $("#bottom-image-gallery").html(bottom_image_gallery);
+
               $("#price").html("£"+result['data']['price']);
               total_price = result['data']['price'];
               price = result['data']['price'];
@@ -59,11 +74,49 @@ function get_auction_by_id(){
           }
     });     
 }
+
+function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  //var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  //captionText.innerHTML = dots[slideIndex-1].alt;
+}
     
 $("#content-slider").lightSlider({
     loop:true,
     keyPress:true
 });
+
 $('#image-gallery').lightSlider({
     gallery:true,
     item:1,
