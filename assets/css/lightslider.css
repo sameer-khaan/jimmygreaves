@@ -465,6 +465,10 @@ img.hover-shadow {
     overflow-y: hidden;
     overflow-x: auto;
 }
+#bottom-image-gallery .column {
+    margin: 10px;
+}
 #bottom-image-gallery img {
 	width: 150px;
+    border-radius: 15px;
 }

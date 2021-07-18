@@ -42,7 +42,9 @@ function get_auction_by_id(){
               $("#delivery_text").html(result['data']['delivery']);
               $("#image-gallery").html(image_gallery_string);
               $("#model-image-gallery").html(model_image_gallery);
-              $("#bottom-image-gallery").html(bottom_image_gallery);
+              if(images.length > 1) {
+                $("#bottom-image-gallery").html(bottom_image_gallery);
+              }
 
               $("#price").html("£"+result['data']['price']);
               total_price = result['data']['price'];
