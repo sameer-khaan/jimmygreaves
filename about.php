@@ -129,12 +129,8 @@ require('header.php');
   </div>
 </div>
 
-
-
-<div style="overflow-x:auto">
-    <div id="home_section_3">
-        <div style="background-color: rgba(0,0,0,0.2); width: 100%; display: flex">
-
+<div id="home_section_3">
+    <div class="home_section_3">
         <a href="<?php echo $site_url?>auction.php">
             <div class="three_hover_div" id="1">
                 <p id="header">Auction</p>
@@ -172,8 +168,8 @@ require('header.php');
             </div>
         </a>
     </div>
-    </div>
 </div>
+
 <?php
 require('footer.php');
 ?>

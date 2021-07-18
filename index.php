@@ -91,11 +91,8 @@ require('header.php');
         <a href="about.php"><button>About</button></a>
 </div>
 
-<div style="overflow-x:auto">
-
-    <div id="home_section_3">
-        <div style="background-color: rgba(0,0,0,0.2); width: 100%; display: flex">
-
+<div id="home_section_3">
+    <div class="home_section_3">
         <a href="<?php echo $site_url?>auction.php">
             <div class="three_hover_div" id="1">
                 <p id="header">Auction</p>
@@ -133,8 +130,7 @@ require('header.php');
             </div>
         </a>
     </div>
-    </div>
-<div>
+</div>
 
 <div class="row" id="home_section_4">
     <div class="col-md-7" id="first_div" >
