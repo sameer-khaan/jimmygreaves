@@ -34,7 +34,7 @@ function get_auction_by_id(){
                                      </div>`;
 
                 bottom_image_gallery+=`<div class="column">
-                                         <img class="demo cursor" src="api/upload/raffle/`+id+`/`+images[i]+`" onclick="currentSlide(`+n+`)">
+                                         <img class="demo_img cursor" src="api/upload/raffle/`+id+`/`+images[i]+`" onclick="currentSlide(`+n+`)">
                                        </div>`;
               }
               $("#terms_text").html(result['data']['terms']);
@@ -99,7 +99,7 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("demo");
+  var dots = document.getElementsByClassName("demo_img");
   //var captionText = document.getElementById("caption");
   if (n > slides.length) {slideIndex = 1}
   if (n < 1) {slideIndex = slides.length}

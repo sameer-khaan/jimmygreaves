@@ -83,7 +83,7 @@
 <div id="myModal" class="modal">
 	<div class="modal-content">
 		<div>
-			<button type="button" class="close" onclick="closeModal()" style="padding: 10px 15px;position: absolute;right: 0;">
+			<button type="button" class="close" onclick="closeModal()">
 				<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
