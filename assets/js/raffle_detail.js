@@ -19,6 +19,7 @@ function get_auction_by_id(){
             if(result['status']=="200"){
               raffle_data = result['data'];
               images = JSON.parse(result['data']['image']);
+              full_images = result['data']['image_full'];
               var image_gallery_string = "";
               var model_image_gallery = "";
               var bottom_image_gallery = "";
@@ -28,10 +29,16 @@ function get_auction_by_id(){
                                             <img style="width:300px" src="api/upload/raffle/`+id+`/`+images[i]+`" onclick="openModal();currentSlide(`+n+`)" class="hover-shadow cursor" />
                                        </li>`;
 
+                if(full_images.includes(images[i])) {
+                  var img_url = 'api/upload/raffle/'+id+'/fullsize/'+images[i];
+                }
+                else {
+                  var img_url = 'api/upload/raffle/'+id+'/'+images[i];
+                }
                 model_image_gallery+=`<div class="mySlides">
-                                       <div class="numbertext">`+n+` / `+images.length+`</div>
-                                       <img src="api/upload/raffle/`+id+`/`+images[i]+`">
-                                     </div>`;
+                                        <div class="numbertext">`+n+` / `+images.length+`</div>
+                                        <img src="`+img_url+`">
+                                      </div>`;
 
                 bottom_image_gallery+=`<div class="column">
                                          <img class="demo_img cursor" src="api/upload/raffle/`+id+`/`+images[i]+`" onclick="currentSlide(`+n+`)">

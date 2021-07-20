@@ -172,7 +172,7 @@ if($request=="create_auction"){
 	$price = $_POST['price'];
 	$endtime = $_POST['endtime'];
 	$create_time = date("Y-m-d h:i:sa");
-	$sql = "INSERT INTO auctions (auction_name,description,delivery,terms,status,create_time,end_time,image,init_price) VALUES ('".$name."','".$desc."','".$delivery."','".$terms."','0','".$create_time."','".$endtime."','[]','$price')";
+	$sql = "INSERT INTO auctions (auction_name,description,delivery,terms,status,create_time,end_time,image,image_full,init_price) VALUES ('".$name."','".$desc."','".$delivery."','".$terms."','0','".$create_time."','".$endtime."','[]','[]','$price')";
 
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
@@ -207,6 +207,17 @@ if($request=="save_auction_image"){
 	$return['status']=200;
 	echo json_encode($return);
 }
+
+if($request=="save_auction_image_full"){
+	$id = $_POST['id'];
+	$image = $_POST['images'];
+	$sql = "UPDATE auctions SET image_full='".$image."' WHERE id='".$id."'";
+	$result = $conn->query($sql);
+	$insert_id = $conn->insert_id;
+	$return['status']=200;
+	echo json_encode($return);
+}
+
 if($request=="save_bid"){
 	$id = $_POST['id'];
 	$user_id = $_POST['user_id'];
@@ -323,7 +334,7 @@ if($request=="get_raffles"){
 if($request=="get_raffle_by_id"){
 	$id = $_POST['id'];
 	$sql="SELECT * FROM raffle WHERE id='$id'";
-		$result = $conn->query($sql);
+	$result = $conn->query($sql);
     $rows = array();
 	if($result->num_rows != 0)
 	{
@@ -347,7 +358,7 @@ if($request=="create_raffle"){
 	$price = $_POST['price'];
 	$endtime = $_POST['endtime'];
 	$create_time = date("Y-m-d h:i:sa");
-	$sql = "INSERT INTO raffle (raffle_name,description,delivery,terms,status,create_time,end_time,image,price) VALUES ('".$name."','".$desc."','".$delivery."','".$terms."','0','".$create_time."','".$endtime."','[]','$price')";
+	$sql = "INSERT INTO raffle (raffle_name,description,delivery,terms,status,create_time,end_time,image,image_full,price) VALUES ('".$name."','".$desc."','".$delivery."','".$terms."','0','".$create_time."','".$endtime."','[]','[]','$price')";
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
 	$return['status']=200;
@@ -382,6 +393,15 @@ if($request=="save_raffle_image"){
 	echo json_encode($return);
 }
 
+if($request=="save_raffle_image_full"){
+	$id = $_POST['id'];
+	$image = $_POST['images'];
+	$sql = "UPDATE raffle SET image_full='".$image."' WHERE id='".$id."'";
+	$result = $conn->query($sql);
+	$insert_id = $conn->insert_id;
+	$return['status']=200;
+	echo json_encode($return);
+}
 
 if($request=="delete_auction"){
 	$id = $_POST['id'];

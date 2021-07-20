@@ -18,6 +18,7 @@ function get_auction_by_id(){
             if(result['status']=="200"){
               auction_data = result['data'];
               images = JSON.parse(result['data']['image']);
+              full_images = result['data']['image_full'];
               var image_gallery_string = "";
               var model_image_gallery = "";
               var bottom_image_gallery = "";
@@ -27,9 +28,15 @@ function get_auction_by_id(){
                                             <img style="width:300px" src="api/upload/auction/`+id+`/`+images[i]+`" onclick="openModal();currentSlide(`+n+`)" class="hover-shadow cursor" />
                                        </li>`;
 
+                if(full_images.includes(images[i])) {
+                  var img_url = 'api/upload/auction/'+id+'/fullsize/'+images[i];
+                }
+                else {
+                  var img_url = 'api/upload/auction/'+id+'/'+images[i];
+                }
                 model_image_gallery+=`<div class="mySlides">
                                         <div class="numbertext">`+n+` / `+images.length+`</div>
-                                        <img src="api/upload/auction/`+id+`/`+images[i]+`">
+                                        <img src="`+img_url+`">
                                       </div>`;
 
                 bottom_image_gallery+=`<div class="column">
@@ -64,6 +71,19 @@ function get_auction_by_id(){
             }
           }
     });     
+}
+
+function checkIfImageExists(url) {
+  var img = new Image();
+  img.src = url;
+  img.onload = () => {
+    console.log('loaded');
+    return true;
+  };
+  img.onerror = () => {
+    console.log('error');
+    return false;
+  };
 }
 
 function openModal() {

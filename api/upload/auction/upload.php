@@ -1,10 +1,19 @@
 <?php
 $id = $_POST['id'];
+$rand = $_POST['rand'];
 $target_dir = $id.'/';
 if (!file_exists($target_dir)) {
   mkdir($target_dir, 0777, true);
 }
-$rand = rand(10,100000);
+
+if(isset($_POST['fullsize'])){
+  $target_dir = $id.'/fullsize/';
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, 0777, true);
+  }
+}
+
+//$rand = rand(10,100000);
 $target_file = $target_dir . basename($rand."-".$_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -47,12 +56,11 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
   if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-      $return['status']="200";
-      $return['filename']=basename( $rand."-".$_FILES["fileToUpload"]["name"]);
-
+    $return['status']="200";
+    $return['filename']=basename( $rand."-".$_FILES["fileToUpload"]["name"]);
   } else {
     $return['status']="201";
-  $return['message']="Sorry, there was an error uploading your file.";
+    $return['message']="Sorry, there was an error uploading your file.";
   }
   echo json_encode($return);
 }

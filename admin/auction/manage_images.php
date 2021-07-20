@@ -64,21 +64,21 @@ require('../footer.php');
 <script type="text/javascript">
   var id = <?php echo $id?>;
   var images = [];
+  var full_images = [];
+  var fullimage;
   $.ajax({
       url:"<?php echo $site_url?>api/ajax.php",
       data: { 
           request:'get_auction_by_id',
           id:id
-         },
+      },
       type: 'post',
-      success: function(re) 
-      {
+      success: function(re) {
         var result = JSON.parse(re);
         if(result['status']=="200"){
           images = JSON.parse(result['data']['image']);
+          full_images = JSON.parse(result['data']['image_full']);
           show_images();
-        }
-        else{
         }
       }
     }); 
@@ -87,6 +87,9 @@ require('../footer.php');
       var file_name = $(this).attr("file_name");
       var index = $(this).attr("index");
       images = jQuery.grep(images, function(value) {
+        return value != file_name;
+      });
+      full_images = jQuery.grep(full_images, function(value) {
         return value != file_name;
       });
       swal({
@@ -99,6 +102,7 @@ require('../footer.php');
         confirmButtonText: 'Yes, delete it!'
       }).then((result) => {
           save_image();
+          save_full_image();
           show_images();
           swal(
             'Deleted!',
@@ -137,9 +141,13 @@ require('../footer.php');
         var blob = new Blob(byteArrays, {type: contentType});
         return blob;
   }
+
     $('body').on('change', '.input-file', function (e) {
       var reader = new FileReader();
       reader.onload = function (event) {
+        //Set the Base64 string return from FileReader for Full image upload.
+        fullimage = event.target.result;
+
         $image_crop.croppie('bind', {
           url: event.target.result
         }).then(function(){
@@ -149,8 +157,46 @@ require('../footer.php');
       reader.readAsDataURL(this.files[0]);
       $('#uploadimageModal').modal('show');
     });
+
+
     $('.crop_image').click(function(event){
-       $(".loading-gif").css("display","block");
+        $(".loading-gif").css("display","block");
+        var rand = Math.floor(10000 + Math.random() * 99999);
+
+        //upload full size image
+        var ImageURL = fullimage;
+        // Split the base64 string in data and contentType
+        var block = ImageURL.split(";");
+        // Get the content type of the image
+        var contentType = block[0].split(":")[1];// In this case "image/gif"
+        // get the real base64 content of the file
+        var realData = block[1].split(",")[1];// In this case "R0lGODlhPQBEAPeoAJosM...."
+        // Convert it to a blob to upload
+        var blob = b64toBlob(realData, contentType);
+        var formdata = new FormData();
+        var tmppath = URL.createObjectURL(blob);
+        var filename = blob.name;
+        formdata.append("fileToUpload", blob);
+        formdata.append("fullsize", true);
+        formdata.append("rand", rand);
+        formdata.append("id", id);
+        jQuery.ajax({
+            url:"<?php echo $site_url?>api/upload/auction/upload.php",
+            data: formdata,
+            processData: false,
+            contentType: false,
+            type: 'post',
+            success: function(result) {
+              $(".loading-gif").css("display","none");
+              var result1 = JSON.parse(result);
+              if(result1['status']=="200"){
+                full_images.push(result1['filename']);
+                save_full_image();  
+              }
+            }
+        });
+        //upload full size image
+
         $image_crop.croppie('result', {
           type: 'canvas',
           size: 'viewport'
@@ -164,33 +210,32 @@ require('../footer.php');
           var realData = block[1].split(",")[1];// In this case "R0lGODlhPQBEAPeoAJosM...."
           // Convert it to a blob to upload
           var blob = b64toBlob(realData, contentType);
-
           var formdata = new FormData();
-           var tmppath = URL.createObjectURL(blob);
-           var filename = blob.name;
-            formdata.append("fileToUpload", blob);
-            formdata.append("id", id);
-            $("#uploadimageModal").modal('hide');
-              jQuery.ajax({
-                  url:"<?php echo $site_url?>api/upload/auction/upload.php",
-                  data: formdata,
-                  processData: false,
-                  contentType: false,
-                  type: 'post',
-                  success: function(result) 
-                  {
-                     $(".loading-gif").css("display","none");
-                     var result1 = JSON.parse(result);
-                     if(result1['status']=="200"){
-                      images.push(result1['filename']);
-                      save_image();  
-                      show_images();
-                      swal("Success","Successfully added.","success");              
-                     } else {
-                      swal('Error',result1['message'],"info");
-                     }
-                  }
-              });
+          var tmppath = URL.createObjectURL(blob);
+          var filename = blob.name;
+          formdata.append("fileToUpload", blob);
+          formdata.append("rand", rand);
+          formdata.append("id", id);
+          $("#uploadimageModal").modal('hide');
+          jQuery.ajax({
+              url:"<?php echo $site_url?>api/upload/auction/upload.php",
+              data: formdata,
+              processData: false,
+              contentType: false,
+              type: 'post',
+              success: function(result) {
+                $(".loading-gif").css("display","none");
+                var result1 = JSON.parse(result);
+                if(result1['status']=="200"){
+                  images.push(result1['filename']);
+                  save_image();  
+                  show_images();
+                  swal("Success","Successfully added.","success");              
+                } else {
+                  swal('Error',result1['message'],"info");
+                }
+              }
+          });
         })
       });
 
@@ -201,10 +246,23 @@ require('../footer.php');
             request:'save_auction_image',
             id:id,
             images:JSON.stringify(images)
-           },
+        },
         type: 'post',
-        success: function(re) 
-        {
+        success: function(re) {
+        }
+      }); 
+    }
+
+    function save_full_image(){
+      $.ajax({
+        url:"<?php echo $site_url?>api/ajax.php",
+        data: { 
+            request:'save_auction_image_full',
+            id:id,
+            images:JSON.stringify(full_images)
+        },
+        type: 'post',
+        success: function(re) {
         }
       }); 
     }
