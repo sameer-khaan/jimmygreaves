@@ -73,19 +73,6 @@ function get_auction_by_id(){
     });     
 }
 
-function checkIfImageExists(url) {
-  var img = new Image();
-  img.src = url;
-  img.onload = () => {
-    console.log('loaded');
-    return true;
-  };
-  img.onerror = () => {
-    console.log('error');
-    return false;
-  };
-}
-
 function openModal() {
   document.getElementById("myModal").style.display = "block";
 }
