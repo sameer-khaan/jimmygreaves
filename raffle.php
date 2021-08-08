@@ -46,7 +46,7 @@ require('header.php');
         <p id="text_body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <a href="contact.php"><button id="button_desktop">Causes we support</button></a>
+		<span class="btn_underline"><a href="contact.php">Causes we support</a></span>
     </div>
     <div class="col-md-5">
         <div class="row" style="padding:20px">
@@ -63,8 +63,7 @@ require('header.php');
                 <img src="assets/img/about6.png" style="width: 100%" />
             </div>
         </div>
-        <a href="contact.php"><button id="button_mobile">Causes we support</button></a>
-
+		<span class="btn_underline"><a href="contact.php">Causes we support</a></span>
     </div>
 </div>
 
