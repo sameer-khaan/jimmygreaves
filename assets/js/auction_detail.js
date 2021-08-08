@@ -25,7 +25,7 @@ function get_auction_by_id(){
               for(var i=0; i<images.length; i++){
                 var n = i + 1;
                 image_gallery_string+=`<li data-thumb="api/upload/auction/`+id+`/`+images[i]+`"> 
-                                            <img style="width:300px" src="api/upload/auction/`+id+`/`+images[i]+`" onclick="openModal();currentSlide(`+n+`)" class="hover-shadow cursor" />
+                                            <img class="img-thumbnail" style="width:300px" src="api/upload/auction/`+id+`/`+images[i]+`" onclick="openAuctionModal();currentSlide(`+n+`)" class="hover-shadow cursor" />
                                        </li>`;
 
                 if(full_images.includes(images[i])) {
@@ -73,13 +73,14 @@ function get_auction_by_id(){
     });     
 }
 
-function openModal() {
-  document.getElementById("myModal").style.display = "block";
+function openAuctionModal() {
+  $("#auction_slider_modal").modal('show');
+  //document.getElementById("myModal").style.display = "block";
 }
 
-function closeModal() {
-  document.getElementById("myModal").style.display = "none";
-}
+// function closeModal() {
+//   document.getElementById("myModal").style.display = "none";
+// }
 
 var slideIndex = 1;
 showSlides(slideIndex);

@@ -53,14 +53,12 @@ require('header.php');
 					<p style="margin-left: 10px">Add Gift Aid to my donation</p>
 				</div>		
 			</div>
-			
 		</div>
-
 	</div>
 </div>
 
 <div class="row" id="donate_section_2">
-    <div class="col-md-6" id="first_div" >
+    <div class="col-md-7" id="first_div" >
         <p id="text_header">Where will my money go?</p>
         <div class="divider mb-4" ></div>
         <p id="text_body">
@@ -68,7 +66,7 @@ require('header.php');
         </p>
         <a href="contact.php"><button id="button_desktop">Causes we support</button></a>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-5">
         <div class="row" style="padding:20px">
           	<div class="col-md-3">
                 <img src="assets/img/about3.png" style="width:100%" />

@@ -25,7 +25,6 @@ require('header.php');
                 <p class="text-white" style="font-size:50px;">Raffle memorabilia</p>
                 <div class="divider mb-4" style="margin:auto"></div>
                 <p class="text-white" style="font-size:20px;">All proceeds go to the Jimmy Greaves Foundation, which lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
             </div>
             <div class="col-lg-8 align-self-baseline mt-5 mb-5" id="section07">
                 <a id="arrow_bottom" href="#auction_section_2"><span></span><span></span><span></span></a>
@@ -36,11 +35,37 @@ require('header.php');
 
 
 <div class="container">
-	<div class="row" id="auction_section_2">
-	   
-	   
-	   
-	</div>
+	<div class="row justify-content-center" id="auction_section_2"></div>
+</div>
+
+
+<div class="row" id="donate_section_2">
+    <div class="col-md-7" id="first_div" >
+        <p id="text_header">Where will my money go?</p>
+        <div class="divider mb-4" ></div>
+        <p id="text_body">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        </p>
+        <a href="contact.php"><button id="button_desktop">Causes we support</button></a>
+    </div>
+    <div class="col-md-5">
+        <div class="row" style="padding:20px">
+          	<div class="col-md-3">
+                <img src="assets/img/about3.png" style="width:100%" />
+            </div>
+            <div class="col-md-3">
+                <img src="assets/img/about4.png" style="width: 100%" />
+            </div>
+            <div class="col-md-3">
+                <img src="assets/img/about5.png" style="width:100%" />
+            </div>
+            <div class="col-md-3">
+                <img src="assets/img/about6.png" style="width: 100%" />
+            </div>
+        </div>
+        <a href="contact.php"><button id="button_mobile">Causes we support</button></a>
+
+    </div>
 </div>
 
 
@@ -89,8 +114,8 @@ require('footer.php');
 		            var pm_am = end_hour>=12 ? 'PM' : 'AM';
 		            var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
 
-					 string+=`<div class="col-md-6" style="margin-top:30px;">
-				    	<a href="raffle_detail.php?id=`+data[i]['id']+`&n=`+data[i]['raffle_name']+`"><img style="width:100%; max-height:450px; min-height:300px; max-width:450px; min-width:300px;" src="`+first_image+`" /></a>
+					 string+=`<div class="col-md-5" style="margin:1% 3%;padding:20px;box-shadow:2px 2px 20px rgb(0 0 0 / 40%);">
+				    	<a href="raffle_detail.php?id=`+data[i]['id']+`&n=`+data[i]['raffle_name']+`"><img class="img-thumbnail" style="width:100%; max-height:450px; max-width:450px;" src="`+first_image+`" /></a>
 				    	<a href="raffle_detail.php?id=`+data[i]['id']+`&n=`+data[i]['raffle_name']+`"><p id="header">`+data[i]['raffle_name']+`</p></a>
 				    	<p id="price">£`+data[i]['price']+`</p>
 				    	<p id="desc">`+data[i]['description']+`</p>

@@ -391,21 +391,21 @@
   cursor: grabbing;
 }
 
-#myModal {
+.sliderModal {
 	display: none;
     position: fixed;
 	padding: 25px;
     padding-top: 80px;
     background-color: rgba(0,0,0,0.5);
 }
-#myModal .modal-content {
+.sliderModal .modal-content {
 	position: relative;
 	background-color: #000000;
 	margin: auto;
     padding: 0;
     max-width: 1200px;
 }
-#myModal .close {
+.sliderModal .close {
     padding: 10px 15px;
     position: absolute;
     right: 0;

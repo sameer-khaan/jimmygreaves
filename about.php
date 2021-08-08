@@ -129,7 +129,7 @@ require('header.php');
   </div>
 </div>
 
-<div id="home_section_3">
+<div id="home_section_3" style="margin-bottom: 6%;">
     <div class="home_section_3">
         <a href="<?php echo $site_url?>auction.php">
             <div class="three_hover_div" id="1">

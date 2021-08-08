@@ -66,10 +66,10 @@ $name= $_GET['n'];
 	</div>
 </div>
 
-<div id="myModal" class="modal">
+<div id="auction_slider_modal" class="modal sliderModal">
 	<div class="modal-content">
 		<div>
-			<button type="button" class="close" onclick="closeModal()">
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 				<span aria-hidden="true">&times;</span>
 			</button>
 		</div>
