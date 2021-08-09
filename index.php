@@ -133,7 +133,7 @@ require('header.php');
 </div>
 
 <div class="row" id="home_section_4">
-    <div class="col-md-7" id="first_div" >
+    <div class="col-md-6" id="first_div" >
         <p id="text_header">Supporting causes lorem ipsum dolor sit amet</p>
         <div class="divider mb-4" ></div>
         <p id="text_body">
@@ -141,7 +141,7 @@ require('header.php');
         </p>
         <span class="btn_underline"><a href="contact.php">Causes we support</a></span>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-6">
         <div class="row" style="padding:20px">
             <div class="col-md-3">
                 <img src="assets/img/about3.png" style="width:100%" />

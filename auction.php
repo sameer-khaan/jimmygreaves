@@ -45,7 +45,7 @@ require('header.php');
 
 
 <div class="row" id="donate_section_2">
-    <div class="col-md-7" id="first_div" >
+    <div class="col-md-6" id="first_div" >
         <p id="text_header">Where will my money go?</p>
         <div class="divider mb-4" ></div>
         <p id="text_body">
@@ -53,7 +53,7 @@ require('header.php');
         </p>
 		<span class="btn_underline"><a href="contact.php">Causes we support</a></span>
     </div>
-    <div class="col-md-5">
+    <div class="col-md-6">
         <div class="row" style="padding:20px">
           	<div class="col-md-3">
                 <img src="assets/img/about3.png" style="width:100%" />
@@ -114,8 +114,8 @@ require('footer.php');
                     var pm_am = end_hour>=12 ? 'PM' : 'AM';
                     var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
 
-					 string+=`<div class="col-md-5" style="margin:1% 3%;padding:20px;box-shadow:2px 2px 20px rgb(0 0 0 / 40%);">
-				    	<a href="auction_detail.php?id=`+data[i]['id']+`&n=`+data[i]['auction_name']+`"><img class="img-thumbnail" style="width:100%; max-height:450px; max-width:450px;" src="`+first_image+`" /></a>
+					 string+=`<div class="col-md-5" style="margin:1% 3%;padding:20px;box-shadow:0px 15px 20px 0px rgb(0 0 0 / 10%);">
+				    	<a href="auction_detail.php?id=`+data[i]['id']+`&n=`+data[i]['auction_name']+`"><img class="img-thumbnail" style="width:100%; max-height:450px; max-width:450px; box-shadow: 0px 2px 10px 0px rgb(0 0 0 / 15%);" src="`+first_image+`" /></a>
 				    	<a href="auction_detail.php?id=`+data[i]['id']+`&n=`+data[i]['auction_name']+`"><p id="header">`+data[i]['auction_name']+`</p></a>
 				    	<p id="price">£`+data[i]['init_price']+`</p>
 				    	<p id="desc">`+data[i]['description']+`</p>
