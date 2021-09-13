@@ -98,7 +98,7 @@ require('header.php');
                 <p id="header">Auction</p>
                 <div class="bottom_boder"></div>
                 <p id="description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                ‘Dad scoring his famous goal against Manchester United with the great Georgie Best, Bobby Charlton, Nobby Styles and Alan Gilzean all looking on’
                 </p>
                 <div id="arraw">
                     <i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -110,7 +110,7 @@ require('header.php');
                 <p id="header">Raffle</p>
                 <div class="bottom_boder"></div>
                 <p id="description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                ‘Dad making his debut for Chelsea, ironically at White Hart Lane against the Spurs’
                 </p>
                 <div id="arraw">
                     <i class="fa fa-arrow-right" aria-hidden="true"></i>
@@ -122,7 +122,7 @@ require('header.php');
                 <p id="header">Donate</p>
                 <div class="bottom_boder"></div>
                 <p id="description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                ‘Dad greeting his big pal, Dave McKay, with Bobby Charlton and Gordon Banks looking on’
                 </p>
                 <div id="arraw">
                     <i class="fa fa-arrow-right" aria-hidden="true"></i>
