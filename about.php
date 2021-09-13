@@ -8,41 +8,13 @@ require('header.php');
 <style type="text/css">
 	@keyframes sharpen {
 		0% {
-			background-image: url("assets/img/home8.jpg");
+			background: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 50%) 100%), url("assets/img/image1.jpeg");
+            background-size: cover;
             filter: blur(1px);
 		}
 		100% {
-			background-image: url("assets/img/home8.jpg");
-            filter: blur(0px);
-		}
-	}
-    @keyframes sharpen1 {
-		0% {
-			background-image: url("assets/img/home8.jpg");
-            filter: blur(1px);
-		}
-		100% {
-			background-image: url("assets/img/home8.jpg");
-            filter: blur(0px);
-		}
-	}
-    @keyframes sharpen2 {
-		0% {
-			background-image: url("assets/img/home9.jpg");
-            filter: blur(1px);
-		}
-		100% {
-			background-image: url("assets/img/home9.jpg");
-            filter: blur(0px);
-		}
-	}
-    @keyframes sharpen3 {
-		0% {
-			background-image: url("assets/img/home10.jpg");
-            filter: blur(1px);
-		}
-		100% {
-			background-image: url("assets/img/home10.jpg");
+			background: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 50%) 100%), url("assets/img/image1.jpeg");
+			background-size: cover;
             filter: blur(0px);
 		}
 	}
@@ -65,15 +37,19 @@ require('header.php');
 </header>
 <div class="container">
 	<div class="row" id="about_section_2">
-	    <div class="col-md-6">
-	        <img src="assets/img/about1.png" />
+	    <div class="col-md-5">
+	        <img src="assets/img/image0.jpeg" />
 	    </div>
-	    <div class="col-md-6" style="text-align:left">
+	    <div class="col-md-7" style="text-align:left">
 	        <p id="text_header">The story behind the <br> Jimmy Greaves Foundation</p>
 	        <div class="divider mb-4" ></div>
-	        <p id="text_body">
-	           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-	        </p>
+            <p id="text_body">
+                Thank you so much for taking the trouble to visit Dad’s special  home here at the Jimmy Greaves Foundation. I promise you he'll be thrilled to know you're thinking of him.  Our aim on this exclusive website is to create space and a place where people can support the Jimmy Greaves Foundation and possibly receive something in return. If you would like to make a donation in Jimmy’s name, it would be greatly appreciated. Every penny after expenses goes towards the causes chosen by Dad. To encourage you to return often to this website  we will be featuring monthly auctions and raffles, so that you and all visitors can bid and maybe win some unique memorabilia. Please register, so that we can keep in touch and let you know what great prizes are on offer. Once again, thank you for your support. Our simple aim is to keep alive the Greavsie spirit. 
+                Good luck with the bidding and your raffle tickets.<br><br>
+                
+                Warm regards,<br>
+                Danny.
+            </p>
 	    </div>
 	</div>
 </div>

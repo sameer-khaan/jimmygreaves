@@ -22,8 +22,9 @@ require('header.php');
 	<div class="container">
 		<p id="text_header">Make a donation</p>
 		<div class="divider mb-4"></div>
-		<p id="text_desc">All proceeds go to the Jimmy Greaves Foundation, which lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-
+		<p id="text_desc">
+			‘Dad greeting his big pal, Dave McKay, with Bobby Charlton and Gordon Banks looking on’.
+		</p>
 		<div class="select_method_div">
 			<button class="select_method_button selected" id="one_off">One off</button>
 			<button class="select_method_button" id="monthly" style="margin-left:30px">Monthly</button>
@@ -57,14 +58,14 @@ require('header.php');
 	</div>
 </div>
 
-<div class="row" id="donate_section_2">
-    <div class="col-md-6" id="first_div" >
+<div class="row justify-content-center" id="donate_section_2">
+    <div class="col-md-6" id="first_div" style="display: none;">
         <p id="text_header">Where will my money go?</p>
         <div class="divider mb-4" ></div>
         <p id="text_body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-		<span class="btn_underline"><a href="contact.php">Causes we support</a></span>
+		<span class="btn_underline"><a href="about.php">Causes we support</a></span>
     </div>
     <div class="col-md-6">
         <div class="row" style="padding:20px">
@@ -81,7 +82,7 @@ require('header.php');
                 <img src="assets/img/about6.png" style="width: 100%" />
             </div>
         </div>
-		<span class="btn_underline"><a href="contact.php">Causes we support</a></span>
+		<span class="btn_underline"><a href="about.php">Causes we support</a></span>
     </div>
 </div>
 

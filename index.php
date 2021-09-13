@@ -132,14 +132,14 @@ require('header.php');
     </div>
 </div>
 
-<div class="row" id="home_section_4">
-    <div class="col-md-6" id="first_div" >
+<div class="row justify-content-center" id="home_section_4">
+    <div class="col-md-6" id="first_div" style="display: none;">
         <p id="text_header">Supporting causes lorem ipsum dolor sit amet</p>
         <div class="divider mb-4" ></div>
         <p id="text_body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-        <span class="btn_underline"><a href="contact.php">Causes we support</a></span>
+        <span class="btn_underline"><a href="about.php">Causes we support</a></span>
     </div>
     <div class="col-md-6">
         <div class="row" style="padding:20px">
@@ -156,7 +156,7 @@ require('header.php');
                 <img src="assets/img/about6.png" style="width: 100%" />
             </div>
         </div>
-        <span class="btn_underline"><a href="contact.php">Causes we support</a></span>
+        <span class="btn_underline"><a href="about.php">Causes we support</a></span>
     </div>
 </div>
 

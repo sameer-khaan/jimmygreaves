@@ -1,12 +1,12 @@
 <footer class="py-4 px-5" id="footer" style="margin-top: auto">
     <div class="container row">
         <div class="col-md-8">
-            <img src="assets/img/logo1.png" style="width:155px" />
+            <a href="<?php echo $site_url?>"><img src="assets/img/logo1.png" style="width:155px" /></a>
             <div class="social_div" style="display:flex; margin-top:10px; justify-content: center; width:155px">
-                <div style="width:36px; height:36px; border-radius:36px; background-color:#586370; margin-right:15px; margin-left:10px "></div>
-                <div style="width:36px; height:36px; border-radius:36px; background-color:#586370; margin-right:15px "></div>
-                <div style="width:36px; height:36px; border-radius:36px; background-color:#586370; margin-right:15px "></div>
-        </div>
+                <a href="https://www.facebook.com/Jimmygreavesfoundation" target="_blank"><img class="p-2" src="assets/img/fb.png" style="width:50px" /></a>
+                <a href="https://www.instagram.com/jimmygreavesfoundation/" target="_blank"><img class="p-2" src="assets/img/insta.png" style="width:50px" /></a>
+                <a href="https://twitter.com/JimmyGreavesFo1" target="_blank"><img class="p-2" src="assets/img/twitter.png" style="width:50px" /></a>
+            </div>
         </div>
         <div class="col-md-4">
             <div class="row">
@@ -35,11 +35,12 @@
             </div>
         </div>
 
-        <div style="display:flex; width: 100%; margin-top:20px" class="footer_bottom">
-            <p style="font-size:14px; color:white">Registered Charity No. 123456</p>
-            <p style="margin-left: auto; color:white; font-size: 14px; margin-right: 30px">Website by EWDS</p>
+        <div style="display:flex;width:100%;margin-top:30px" class="footer_bottom">
+            <p style="font-size:14px;color:white">Registered Charity No. 123456</p>
+            <p style="margin-left:auto;color:white;font-size:14px;">
+                <a href="http://essexwebdesignstudio.com/" target="_blank" style="color:#fff;text-decoration:underline;">Website by EWDS</a>
+            </p>
         </div>
-
 
     </div>
 </footer>

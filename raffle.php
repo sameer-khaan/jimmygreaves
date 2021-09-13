@@ -24,7 +24,9 @@ require('header.php');
             <div class="col-lg-10 align-self-end mt-5 mb-5">
                 <p class="text-white" style="font-size:50px;">Raffle memorabilia</p>
                 <div class="divider mb-4" style="margin:auto"></div>
-                <p class="text-white" style="font-size:20px;">All proceeds go to the Jimmy Greaves Foundation, which lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                <p class="text-white" style="font-size:20px;">
+					‘Dad making his debut for Chelsea, ironically at White Hart Lane against the Spurs’.
+				</p>
             </div>
             <div class="col-lg-8 align-self-baseline mt-5 mb-5" id="section07">
                 <a id="arrow_bottom" href="#auction_section_2"><span></span><span></span><span></span></a>
@@ -39,14 +41,14 @@ require('header.php');
 </div>
 
 
-<div class="row" id="donate_section_2">
-    <div class="col-md-6" id="first_div" >
+<div class="row justify-content-center" id="donate_section_2">
+    <div class="col-md-6" id="first_div" style="display: none;">
         <p id="text_header">Where will my money go?</p>
         <div class="divider mb-4" ></div>
         <p id="text_body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
-		<span class="btn_underline"><a href="contact.php">Causes we support</a></span>
+		<span class="btn_underline"><a href="about.php">Causes we support</a></span>
     </div>
     <div class="col-md-6">
         <div class="row" style="padding:20px">
@@ -63,7 +65,7 @@ require('header.php');
                 <img src="assets/img/about6.png" style="width: 100%" />
             </div>
         </div>
-		<span class="btn_underline"><a href="contact.php">Causes we support</a></span>
+		<span class="btn_underline"><a href="about.php">Causes we support</a></span>
     </div>
 </div>
 
