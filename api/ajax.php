@@ -164,6 +164,26 @@ if($request=="get_donates"){
 	echo json_encode($return);
 }
 
+if($request=="get_contact"){
+	$sql="SELECT * FROM contact order by id desc";
+	$result = $conn->query($sql);
+    $rows = array();
+	if($result->num_rows != 0)
+	{
+		while ($row = $result -> fetch_assoc()) {
+	       $rows[] = $row;
+
+	    }
+		$return['status']=200;
+		$return['data']=$rows;
+	}	 
+	else{
+		$return['status']=201;
+		$return['message']="There is no result";
+	}
+	echo json_encode($return);
+}
+
 if($request=="create_auction"){
 	$name = $_POST['name'];
 	$desc = $_POST['desc'];
@@ -279,6 +299,27 @@ if($request=="buy_raffle"){
 
 	$return['status']=200;
 	$return['id']=$insert_id;
+	$return['data']=$data;
+	echo json_encode($return);
+}
+
+if($request=="contact"){
+	$name = mysqli_real_escape_string($conn, $_POST['name']);
+	$number = mysqli_real_escape_string($conn, $_POST['number']);
+	$email = mysqli_real_escape_string($conn, $_POST['email']);
+	$message = mysqli_real_escape_string($conn, $_POST['message']);
+
+	$sql = "INSERT INTO contact (name,number,email,message) VALUES ('".$name."','".$number."','".$email."','".$message."')";
+	$result = $conn->query($sql);
+
+	$data = array(
+		'name' => $name,
+		'number' => $number,
+		'email' => $email,
+		'message' => $message
+	);
+
+	$return['status']=200;
 	$return['data']=$data;
 	echo json_encode($return);
 }
@@ -424,6 +465,15 @@ if($request=="delete_raffle"){
 if($request=="delete_donate"){
 	$id = $_POST['id'];
 	$sql = "DELETE FROM donate WHERE id='$id'";
+	$result = $conn->query($sql);
+	$insert_id = $conn->insert_id;
+	$return['status']=200;
+	echo json_encode($return);
+}
+
+if($request=="delete_contact"){
+	$id = $_POST['id'];
+	$sql = "DELETE FROM contact WHERE id='$id'";
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
 	$return['status']=200;

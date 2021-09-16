@@ -81,6 +81,9 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?php echo $site_url?>admin/donate/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Donate</span></a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo $site_url?>admin/contact/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Contact</span></a>
+                                </li>
                             </ul>
                         </div>
                     </div>

@@ -31,7 +31,8 @@ require('header.php');
         </div>
     </div>
 </header>
-<div class="container row" id="contact_section_2" style="padding-top:50px;padding-bottom:50px">
+
+<div class="container row" id="contact_section_2" style="padding-top:50px;padding-bottom:50px;display:none">
 	<div class="col-md-6">
 		<!-- <p style="font-size: 40px; font-weight: 500">Get in touch</p>
 		<div class="divider mb-4"></div>
@@ -59,12 +60,112 @@ require('header.php');
 				<ion-icon name="phone-portrait-outline" style="color: #62B5F1;"></ion-icon>
 				<span style="color: white; margin-left: 10px; font-size: 16px">01234 567890</span>
 			</div>
-
 		</div>
-
 	</div>
-
 </div>
+
+<div class="container row m-auto" id="contact_section_2" style="padding-top: 80px;padding-bottom: 80px;">
+	<div class="col-md-6 d-flex">
+    	<img src="assets/img/home9.jpg" style="width: 100%">
+	</div>
+	<div class="col-md-6">
+		<div class="contact-wrap py-4 px-2">
+			<h3 class="mb-2">Contact Us</h3>
+			<div class="divider mb-4"></div>	
+			<form method="POST" id="contactForm" name="contactForm" class="contactForm">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="form-group">
+							<label class="label" for="name">Your Name *</label>
+							<input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+						</div>
+					</div>
+					<div class="col-md-6"> 
+						<div class="form-group">
+							<label class="label" for="subject">Your Phone</label>
+							<input type="text" class="form-control" name="number" id="number" placeholder="Phone">
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="label" for="email">Your Email *</label>
+							<input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group">
+							<label class="label" for="message">Message *</label>
+							<textarea class="form-control" name="message" id="message" cols="30" rows="3" placeholder="Message" required></textarea>
+						</div>
+					</div>
+					<div class="col-md-12">
+						<div class="form-group text-right mb-0">
+							<input type="submit" value="Send Message" class="btn btn-primary">
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+$("#contactForm").submit(function(e){
+	e.preventDefault();
+	var name = $("#contactForm #name").val();
+	var number = $("#contactForm #number").val();
+	var email = $("#contactForm #email").val();
+	var message = $("#contactForm #message").val();
+
+	if(name && email && message) {
+		$("input[type='submit']").attr('disabled',true);
+		$("input[type='submit']").after('<img src="assets/img/spinner.gif" style="width:30px;">');
+		$.ajax({
+			url:"api/ajax.php",
+			data: { 
+				request:'contact',
+				name:name,
+				number:number,
+				email:email,
+				message:message
+			},
+			async:false,
+			type: 'post',
+			success: function(re)
+			{
+				var result = JSON.parse(re);
+				if(result['status']=="200"){
+
+					var data = {
+					service_id: YOUR_SERVICE_ID,
+					template_id: CONTACT_FORM_ID,
+					user_id: YOUR_USER_ID,
+					template_params: result['data']
+					};
+
+					$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+						type: 'POST',
+						data: JSON.stringify(data),
+						contentType: 'application/json'
+					}).done(function() {
+						console.log('Your mail is sent!');
+						swal("Success","Successfully Sent","success");
+						$('#contactForm')[0].reset();
+						$("input[type='submit']").removeAttr('disabled');
+						$("input[type='submit']").next('img').remove();
+					}).fail(function(error) {
+						console.log('Oops... ' + JSON.stringify(error));
+						swal("Success","Successfully Sent","success");
+						$('#contactForm')[0].reset();
+						$("input[type='submit']").removeAttr('disabled');
+						$("input[type='submit']").next('img').remove();
+					});
+				}
+			}
+		});
+	}
+});
+</script>
 
 <?php
 require('footer.php');
