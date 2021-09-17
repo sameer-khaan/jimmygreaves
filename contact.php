@@ -14,6 +14,23 @@ require('header.php');
             filter: blur(0px);
 		}
 	}
+
+	.contactForm .form-control {
+		border: none;
+		border-radius: 0;
+		padding: 2px;
+		border-bottom: 1px solid #343a42ba;
+	}
+
+	.contactForm .form-control:focus {
+		border-color: #62b5f1!important;
+    	box-shadow: none;
+	}
+
+	.contactForm .form-group label {
+		position: relative;
+		top: 36px;
+	}
 </style>
 
 
@@ -66,36 +83,32 @@ require('header.php');
 
 <div class="container row m-auto" id="contact_section_2" style="padding-top: 80px;padding-bottom: 80px;">
 	<div class="col-md-6 d-flex">
-    	<img src="assets/img/home9.jpg" style="width: 100%">
+    	<img src="assets/img/home9.jpg" style="width: 100%;max-height: 350px;">
 	</div>
 	<div class="col-md-6">
-		<div class="contact-wrap py-4 px-2">
+		<div class="contact-wrap pt-3 pb-2 px-2">
 			<h3 class="mb-2">Contact Us</h3>
 			<div class="divider mb-4"></div>	
 			<form method="POST" id="contactForm" name="contactForm" class="contactForm">
 				<div class="row">
 					<div class="col-md-6">
-						<div class="form-group">
-							<label class="label" for="name">Your Name *</label>
-							<input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
+						<div class="form-group mb-4">
+							<input type="text" class="form-control" name="name" id="name" placeholder="Your Name *" required>
 						</div>
 					</div>
 					<div class="col-md-6"> 
-						<div class="form-group">
-							<label class="label" for="subject">Your Phone</label>
-							<input type="text" class="form-control" name="number" id="number" placeholder="Phone">
+						<div class="form-group mb-4">
+							<input type="text" class="form-control" name="number" id="number" placeholder="Your Phone">
 						</div>
 					</div>
 					<div class="col-md-12">
-						<div class="form-group">
-							<label class="label" for="email">Your Email *</label>
-							<input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
+						<div class="form-group mb-4">
+							<input type="email" class="form-control" name="email" id="email" placeholder="Your Email *" required>
 						</div>
 					</div>
 					<div class="col-md-12">
-						<div class="form-group">
-							<label class="label" for="message">Message *</label>
-							<textarea class="form-control" name="message" id="message" cols="30" rows="3" placeholder="Message" required></textarea>
+						<div class="form-group mb-4">
+							<textarea class="form-control" name="message" id="message" cols="30" rows="3" placeholder="Message *" required></textarea>
 						</div>
 					</div>
 					<div class="col-md-12">
