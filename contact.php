@@ -14,22 +14,34 @@ require('header.php');
             filter: blur(0px);
 		}
 	}
-
 	.contactForm .form-control {
 		border: none;
 		border-radius: 0;
 		padding: 2px;
 		border-bottom: 1px solid #343a42ba;
 	}
-
 	.contactForm .form-control:focus {
 		border-color: #62b5f1!important;
     	box-shadow: none;
 	}
-
 	.contactForm .form-group label {
 		position: relative;
 		top: 36px;
+	}
+	.contactForm .btn-primary {
+		background: #334682ed;
+		border-color: #334682;
+	}
+	.contactForm .btn-primary:hover {
+		background: #334682;
+	}
+	.contactForm .btn-primary:not(:disabled):not(.disabled):active {
+		background: #334682;
+		border-color: #334682;
+	}
+	.contactForm .btn-primary:focus,
+	.btn-primary:not(:disabled):not(.disabled):active:focus {
+		box-shadow: 0 0 0 0.2rem rgb(191 190 189 / 50%);
 	}
 </style>
 
@@ -87,8 +99,12 @@ require('header.php');
 	</div>
 	<div class="col-md-6">
 		<div class="contact-wrap pt-3 pb-2 px-2">
-			<h3 class="mb-2">Contact Us</h3>
-			<div class="divider mb-4"></div>	
+			<div class="row">
+				<div class="col-md-12">
+					<h3 class="mb-2">Contact Us</h3>
+					<div class="divider mb-4"></div>
+				</div>
+			</div>
 			<form method="POST" id="contactForm" name="contactForm" class="contactForm">
 				<div class="row">
 					<div class="col-md-6">
