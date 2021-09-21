@@ -4,7 +4,7 @@ require('header.php');
 ?>
 <link href="assets/css/about.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
 <link href="assets/css/home.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
-<title>About</title>
+<title>About | Jimmy Greaves Foundation</title>
 <style type="text/css">
 	@keyframes sharpen {
 		0% {
@@ -55,7 +55,7 @@ require('header.php');
 </div>
 
 <div class="container" id="about_section_3">
-	<p id="text_header">Supporting causes lorem ipsum dolor sit amet</p>
+	<p id="text_header">Causes chosen by dad</p>
 	<div class="divider" style="margin-bottom:70px" ></div>
 	
 	<div class="row">

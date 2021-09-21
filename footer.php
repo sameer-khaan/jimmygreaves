@@ -36,7 +36,7 @@
         </div>
 
         <div style="display:flex;width:100%;margin-top:30px" class="footer_bottom">
-            <p style="font-size:14px;color:white">Registered Charity No. 123456</p>
+            <p style="font-size:14px;color:white">Registered Charity No. 1189905</p>
             <p style="margin-left:auto;color:white;font-size:14px;">
                 <a href="http://essexwebdesignstudio.com/" target="_blank" style="color:#fff;text-decoration:underline;">Website by EWDS</a>
             </p>

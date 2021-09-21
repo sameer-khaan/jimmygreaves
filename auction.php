@@ -2,7 +2,7 @@
 require('header.php');
 ?>
 <link href="assets/css/auction.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
-<title>Auction</title>
+<title>Auction Memorabilia | Jimmy Greaves Foundation</title>
 <style type="text/css">
 	.tooltip-custom {
 	    .tooltip-inner {

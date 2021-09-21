@@ -2,7 +2,7 @@
 require('header.php');
 ?>
 <link href="assets/css/auction.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
-<title>Raffle</title>
+<title>Raffle Memorabilia | Jimmy Greaves Foundation</title>
 <style type="text/css">
 	@keyframes sharpen {
 		0% {

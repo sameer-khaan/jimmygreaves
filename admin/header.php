@@ -73,7 +73,7 @@
                                     <!-- <a class="nav-link" href="<?php echo $site_url?>admin/user/"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">User</span></a> -->
                                 <!-- </li> -->
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo $site_url?>admin/auction/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Acution</span></a>
+                                    <a class="nav-link" href="<?php echo $site_url?>admin/auction/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Auction</span></a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?php echo $site_url?>admin/raffle/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Raffle</span></a>

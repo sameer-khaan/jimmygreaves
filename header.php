@@ -45,6 +45,15 @@ if(isset($_SESSION['login_flag']))
           var CONTACT_FORM_ID = 'template_f47dv98';
           var YOUR_USER_ID = 'user_xi7mUaoVTXsI7vhIe8BZn';
         </script>
+
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PN40R34CQX"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-PN40R34CQX');
+        </script>
     </head>
 
     <body id="page-top">

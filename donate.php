@@ -2,7 +2,7 @@
 require('header.php');
 ?>
 <link href="assets/css/donate.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
-<title>Donate</title>
+<title>Make a donation | Jimmy Greaves Foundation</title>
 <style type="text/css">
 	@keyframes sharpen {
 		0% {

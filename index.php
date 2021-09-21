@@ -2,7 +2,7 @@
 require('header.php');
 ?>
 <link href="assets/css/home.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
-<title>Home</title>
+<title>Home | Welcome to the Jimmy Greaves Foundation</title>
 <style type="text/css">
 	@keyframes sharpen {
 		0% {
@@ -81,12 +81,16 @@ require('header.php');
 </div>
 
 <div id="home_section_2_mobile">
-        <p id="text_header" >Supporting lorem ipsum dolor sit amet</p>
+        <!-- <p id="text_header" >Supporting lorem ipsum dolor sit amet</p> -->
         <div class="divider mb-4" ></div>
 
         <img src="assets/img/home11.jpg" />
-        <p id="text_body" style="font-weight:500; font-size:14px; line-height:22px">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <p id="text_body">
+            Thank you so much for taking the trouble to visit Dad’s special  home here at the Jimmy Greaves Foundation. I promise you he'll be thrilled to know you're thinking of him.  Our aim on this exclusive website is to create space and a place where people can support the Jimmy Greaves Foundation and possibly receive something in return. If you would like to make a donation in Jimmy’s name, it would be greatly appreciated. Every penny after expenses goes towards the causes chosen by Dad. To encourage you to return often to this website  we will be featuring monthly auctions and raffles, so that you and all visitors can bid and maybe win some unique memorabilia. Please register, so that we can keep in touch and let you know what great prizes are on offer. Once again, thank you for your support. Our simple aim is to keep alive the Greavsie spirit. 
+            Good luck with the bidding and your raffle tickets.<br><br>
+            
+            Warm regards,<br>
+            Danny.
         </p>
         <span class="btn_underline"><a href="about.php">About</a></span>
 </div>
@@ -133,14 +137,14 @@ require('header.php');
 </div>
 
 <div class="row justify-content-center" id="home_section_4">
-    <div class="col-md-6" id="first_div" style="display: none;">
+    <!-- <div class="col-md-6" id="first_div" style="display: none;">
         <p id="text_header">Supporting causes lorem ipsum dolor sit amet</p>
         <div class="divider mb-4" ></div>
         <p id="text_body">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
         <span class="btn_underline"><a href="about.php">Causes we support</a></span>
-    </div>
+    </div> -->
     <div class="col-md-6">
         <div class="row" style="padding:20px">
             <div class="col-md-3">
