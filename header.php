@@ -11,7 +11,6 @@ if(isset($_SESSION['login_flag']))
         $user_name = $_SESSION['user_name'];
         $user_id = $_SESSION['user_id'];
         $email = $_SESSION['email'];
-
     }
 ?>
 <!DOCTYPE html>
@@ -19,8 +18,10 @@ if(isset($_SESSION['login_flag']))
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
+        <meta name="description" content="hank you so much for taking the trouble to visit Dad’s special home here at the Jimmy Greaves Foundation. I promise you he'll be thrilled to know you're thinking of him. Our aim on this exclusive website is to create space and a place where people can support the Jimmy Greaves Foundation and possibly receive something in return. If you would like to make a donation in Jimmy’s name, it would be greatly appreciated. Every penny after expenses goes towards the causes chosen by Dad. To encourage you to return often to this website we will be featuring monthly auctions and raffles, so that you and all visitors can bid and maybe win some unique memorabilia. Please register, so that we can keep in touch and let you know what great prizes are on offer. Once again, thank you for your support. Our simple aim is to keep alive the Greavsie spirit. Good luck with the bidding and your raffle tickets." />
+        <meta name="keywords" content="Jimmy, Jimmy Greaves, Foundation, Jimmy Greaves Foundation, Auction, Auction memorabilia, Tottenham Hotspur FC, Premier League">
+        <meta name="author" content="Sameer Khan" />
+        
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -65,7 +66,14 @@ if(isset($_SESSION['login_flag']))
                 <a class="navbar-brand js-scroll-trigger" href="<?php echo $site_url?>">
                     <img src="assets/img/logo2.png" />
                 </a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <!-- <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button> -->
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                  <label for="check" class="burgerMenu"><input type="checkbox" id="check">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </label>
+                </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive" >
                     <ul class="navbar-nav ml-auto my-2 my-lg-0" style="height:50px">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="<?php echo $site_url?>">Home</a>

@@ -17,7 +17,7 @@ require('header.php');
 </style>
 
 
-<header class="masthead" style="background-position: unset;">
+<header class="masthead raffle" style="background-position: unset;">
 	<!-- <img src="assets/img/home9.jpg" style="width:auto;position:absolute;" /> -->
 	<div class="container h-100">
         <div class="row h-100 align-items-center justify-content-center text-center">

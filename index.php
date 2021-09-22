@@ -4,13 +4,15 @@ require('header.php');
 <link href="assets/css/home.css?i=<?php echo rand(10,100);?>" rel="stylesheet" />
 <title>Home | Welcome to the Jimmy Greaves Foundation</title>
 <style type="text/css">
-	@keyframes sharpen {
+    @keyframes sharpen {
 		0% {
-			background-image: url("assets/img/home1.jpg");
+			background: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 50%) 100%), url("assets/img/image1.jpeg");
+            background-size: cover;
             filter: blur(1px);
 		}
 		100% {
-			background-image: url("assets/img/home1.jpg");
+			background: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 50%) 100%), url("assets/img/image1.jpeg");
+			background-size: cover;
             filter: blur(0px);
 		}
 	}

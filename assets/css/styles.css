@@ -10376,8 +10376,19 @@ header.masthead h1 {
 }
 
 @media (max-width: 767px) {
+    header.masthead,
+    div.mastheader {
+      background-position: bottom!important;
+    }
+    header.masthead.raffle{
+      background-position-y: 100px!important;
+    }
     footer .footer_bottom{
-      display: none !important;
+      flex-direction: column;
+      align-items: center;
+    }
+    footer .footer_bottom p{
+      margin-left: 0!important;
     }
     footer .container{
       text-align: center;
@@ -10385,4 +10396,62 @@ header.masthead h1 {
     footer .social_div{
       margin:auto;
     }
+}
+
+.navbar-toggler {
+  padding: 0;
+  border: none;
+  margin-top: 12px;
+}
+.navbar-toggler:focus, .navbar-toggler:hover {
+  outline: none;
+}
+.burgerMenu input[type=checkbox] {
+  display: none;
+}
+.burgerMenu {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 42px;
+  cursor: pointer;
+}
+.burgerMenu span {
+  background: #0a3078;
+  border-radius: 10px;
+  height: 4px;
+  margin: 3px 0;
+  transition: .4s cubic-bezier(.68,-.6,.32,1.6);
+}
+.burgerMenu span:first-of-type {
+  width: 50%;
+}
+.burgerMenu span:nth-of-type(2) {
+  width: 100%;
+}
+.burgerMenu span:nth-of-type(3) {
+  width: 75%;
+}
+
+.burgerMenu input[type=checkbox]:checked~span:first-of-type {
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;
+  width: 40%;
+  -webkit-transform: rotate(45deg) translate(6px,3px);
+  transform: rotate(45deg) translate(6px,3px);
+}
+.burgerMenu input[type=checkbox]:checked~span:nth-of-type(2) {
+  -webkit-transform-origin: top;
+  transform-origin: top;
+  width: 78%;
+  -webkit-transform: rotate(-45deg) translate(-3px,1px);
+  transform: rotate(-45deg) translate(-3px,1px);
+}
+.burgerMenu input[type=checkbox]:checked~span:nth-of-type(3) {
+  -webkit-transform-origin: bottom;
+  transform-origin: bottom;
+  width: 40%;
+  -webkit-transform: rotate(45deg) translate(8px,-11px);
+  transform: rotate(45deg) translate(8px,-11px);
 }
