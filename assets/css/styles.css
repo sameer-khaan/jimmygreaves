@@ -10381,7 +10381,7 @@ header.masthead h1 {
       background-position: bottom!important;
     }
     header.masthead.raffle{
-      background-position-y: 100px!important;
+      background-position-y: 80px!important;
     }
     footer .footer_bottom{
       flex-direction: column;
