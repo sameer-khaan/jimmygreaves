@@ -66,7 +66,7 @@ require('header.php');
 <div class="container">
 	<div class="row" id="about_section_2">
 	    <div class="col-md-5">
-	        <img src="assets/img/image0.jpeg" />
+	        <img src="assets/img/image0.jpg" />
 	    </div>
 	    <div class="col-md-7" style="text-align:left">
 	        <p id="text_header">The story behind the <br> Jimmy Greaves Foundation</p>
