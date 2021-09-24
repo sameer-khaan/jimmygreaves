@@ -7,12 +7,14 @@ require('header.php');
 <title>About | Jimmy Greaves Foundation</title>
 <style type="text/css">
 	@keyframes sharpen {
-		0% {
-			background-image: url("assets/img/home1.jpg");
+        0% {
+			background: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 50%) 100%), url("assets/img/image1.jpg");
+            background-size: cover;
             filter: blur(1px);
 		}
 		100% {
-			background-image: url("assets/img/home1.jpg");
+			background: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 50%) 100%), url("assets/img/image1.jpg");
+			background-size: cover;
             filter: blur(0px);
 		}
 	}
