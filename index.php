@@ -6,12 +6,12 @@ require('header.php');
 <style type="text/css">
     @keyframes sharpen {
 		0% {
-			background-image: linear-gradient(to bottom, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 50%) 100%), url("assets/img/image1.jpg");
+			background-image: url("assets/img/image1.jpg");
             background-size: cover;
             filter: blur(1px);
 		}
 		100% {
-			background-image: linear-gradient(0deg, rgb(10 27 80 / 30%) 0%, rgb(52 58 66 / 50%) 100%), url('assets/img/image1.jpg');
+			background-image: url('assets/img/image1.jpg');
 			background-size: cover;
             filter: blur(0px);
 		}
