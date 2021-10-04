@@ -63,9 +63,9 @@ require('header.php');
             <div class="col-md-3">
                 <img src="assets/img/about4.png" style="width: 100%" />
             </div>
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <img src="assets/img/about5.png" style="width:100%" />
-            </div>
+            </div> -->
             <div class="col-md-3">
                 <img src="assets/img/about6.png" style="width: 100%" />
             </div>

@@ -51,16 +51,16 @@ require('header.php');
 		<span class="btn_underline"><a href="about.php">Causes we support</a></span>
     </div>
     <div class="col-md-6">
-        <div class="row" style="padding:20px">
+        <div class="row justify-content-center" style="padding:20px">
           	<div class="col-md-3">
                 <img src="assets/img/about3.png" style="width:100%" />
             </div>
             <div class="col-md-3">
                 <img src="assets/img/about4.png" style="width: 100%" />
             </div>
-            <div class="col-md-3">
+            <!-- <div class="col-md-3">
                 <img src="assets/img/about5.png" style="width:100%" />
-            </div>
+            </div> -->
             <div class="col-md-3">
                 <img src="assets/img/about6.png" style="width: 100%" />
             </div>

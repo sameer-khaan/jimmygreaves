@@ -120,7 +120,7 @@ require('header.php');
 
 
 
-    <div class="row">
+    <!-- <div class="row">
 	    <div class="col-sm-6 order-sm-12" id="first_sub_div">
 	    	<p id="text_sub_header">Jimmy Greaves Football Academy</p>
 	    	<p id="text_sub_desc">Dad is honoured to have his Football Academy linked to the encouragement and stimulation of the Beautiful Game, being literally put at the feet of boys and girls from all walks of life. He is from the coats-for-goalposts generation and wants children to benefit from the best possible facilities at the least possible cost. Our Foundation firmly believes that the game should not be elitist but available for any child who wishes to find his or her own level of performance without pressure or financial demands. Any monetary support will be gratefully received by the Academy to drive down the costs of children enjoying the game: https://www.jimmygreavesacademy.co.uk</p>
@@ -129,7 +129,7 @@ require('header.php');
 	    <div class="col-sm-6 order-sm-11" id="second_sub_div">
 	    	<img src="assets/img/about5.png">
 	    </div>
-    </div>
+    </div> -->
   </div>
 </div>
 

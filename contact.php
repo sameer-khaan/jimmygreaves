@@ -129,7 +129,9 @@ require('header.php');
 					</div>
 					<div class="col-md-12">
 						<div class="form-group text-right mb-0">
-							<input type="submit" value="Send Message" class="btn btn-primary">
+							<span class="btn_underline">
+								<a href="javascript://"><input type="submit" value="Send Message" style="background: none;border: none;font-weight: 600;"></a>
+							</span>
 						</div>
 					</div>
 				</div>
