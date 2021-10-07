@@ -142,7 +142,7 @@ if(isset($_SESSION['login_flag']))
 
         <div style="display: flex; align-items: center; margin-top:20px;text-align: left">
             <input type="checkbox" id="accept_checkbox" style="margin-right: 5px">
-            <span>I agree to lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor</span>
+            <span>I would like to be kept informed of further news, upcoming auctions & raffles.</span>
         </div>
         <button id="signup_button"> Sign Up </button>
         <span style="font-size: 14px">Or</span>

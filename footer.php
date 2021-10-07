@@ -29,7 +29,7 @@
                         <a href="<?php echo $site_url?>contact.php">Contact</a>
                     </li>
                     <li>
-                        <a href="#">Terms & conditions</a>
+                        <a href="<?php echo $site_url?>privacy_policy.php">Privacy Policy</a>
                     </li>
                 </div>
             </div>
