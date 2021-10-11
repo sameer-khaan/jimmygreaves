@@ -115,7 +115,7 @@ if(isset($_SESSION['login_flag']))
         </div>
         <button id="signin_button"> Sign In </button>
         <span style="font-size: 14px">Or</span>
-        <button class="facebook_login"><ion-icon style="margin-right: 10px" name="logo-facebook"></ion-icon> Continue with Facebook </button>
+        <!-- <button class="facebook_login"><ion-icon style="margin-right: 10px" name="logo-facebook"></ion-icon> Continue with Facebook </button> -->
         <span style="font-size: 14px">Don’t have an account? <span id="sign_up_link" style="border-bottom:1px solid gray">Sign up</span></span>
 
       </div>
