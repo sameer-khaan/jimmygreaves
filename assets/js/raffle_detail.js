@@ -161,7 +161,7 @@ paypal.Button.render({
         client: {
           //sandbox: 'AUOIw9T0HlHoFXrskX2L8M6WWkbH_QhN2k3BtJRUlx0IBEen8S_mOVgdIJ5h2ml37Hc4GX2WTR9KDF0u',
           //production: 'ASAq7Q3AwES6JQ9Mc_Od5doolAQkzGxjyQ74oNA0LkBEbVz2eO38eLnNOF7iOMWWp6vsUcWjFGvsjTCJ'
-          production: 'EPtpx2Gfqr8_IfdMpSqKUzikzG8lvOc-7rduiJQ_drEajauImlHpzbDscpDr71ZzQlyFl8EHnb7IyX1Y'
+          production: 'ARiEn-rP-QtqFV7bROZWIrinq2AEjkoNkOVB7ElpJ183yxM_nqPdOE5zCNela0rlw-F8MrRi1DeBsjFz'
         },
         // Customize button (optional)
         locale: 'en_US',
