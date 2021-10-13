@@ -43,7 +43,7 @@ if(isset($_SESSION['login_flag']))
           var RAFFLE_TEMP_ID = 'template_hyh70tp';
           var AUCTION_TEMP_ID = 'template_9o7iz1g';
           var DONATION_TEMP_ID = 'template_9wn313k';
-          var CONTACT_FORM_ID = 'template_f47dv98';
+          var CONTACT_FORM_ID = 'template_e38rgi2';
           var YOUR_USER_ID = 'user_xi7mUaoVTXsI7vhIe8BZn';
         </script>
 
