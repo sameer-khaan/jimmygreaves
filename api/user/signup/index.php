@@ -6,6 +6,7 @@ $fullname = $_POST['fullname'];
 $email    = $_POST['email'];
 $password = $_POST['password'];
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
+$accept_checkbox = isset($_POST['accept_checkbox']) ? $_POST['accept_checkbox'] : '0';
 // $verify = password_verify($password, $password_hash); 
 $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
 $payload = json_encode(['fullname' => $fullname,'email'=>$email]);
@@ -23,7 +24,7 @@ if($result->num_rows != 0)
 	$return['message']="Alread exist";
 }	 
 else{
-    $query_insert = "INSERT INTO user (fullname,email,password,token) VALUES ('$fullname', '$email', '$password_hash','$token')";
+    $query_insert = "INSERT INTO user (fullname,email,password,token,mailing_list) VALUES ('$fullname', '$email', '$password_hash','$token','$accept_checkbox')";
 	$result1 = $conn->query($query_insert);
 	$id = $conn->insert_id;
 	$return['status']=200;

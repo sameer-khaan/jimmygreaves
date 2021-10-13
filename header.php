@@ -39,7 +39,7 @@ if(isset($_SESSION['login_flag']))
         <link href="assets/css/styles.css" rel="stylesheet" />
 
         <script type="text/javascript">
-          var YOUR_SERVICE_ID = 'service_6he6riw';
+          var YOUR_SERVICE_ID = 'service_9ewr7du';
           var RAFFLE_TEMP_ID = 'template_hyh70tp';
           var AUCTION_TEMP_ID = 'template_9o7iz1g';
           var DONATION_TEMP_ID = 'template_9wn313k';
