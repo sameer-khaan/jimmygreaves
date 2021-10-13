@@ -131,9 +131,13 @@ $("#signup_button").click(function(){
     var email = $("#email_signup").val();
     var password = $("#password_signup").val();
     var conf_password = $("#con_password_signup").val();
-    var accept_checkbox = $("#accept_checkbox").val();
-    console.log(accept_checkbox);
-    
+    var accept_checkbox = $("#accept_checkbox:checked").val();
+    if(accept_checkbox == 'on') {
+      accept_checkbox = '1';
+    }else{
+      accept_checkbox = '0';
+    }
+
     if(fullname!="" && password!="" && email!="" && password==conf_password){
         jQuery.ajax({
           url:"api/user/signup/index.php",
