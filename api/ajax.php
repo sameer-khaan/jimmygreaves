@@ -46,12 +46,7 @@ if($request=="get_auction_by_id"){
 
 if($request=="get_biders"){
 	$id = $_POST['id'];
-	$sql="
-		SELECT u.fullname, u.email, d.* 
-			FROM user u, auction_detail d 
-				WHERE u.id=d.user_id 
-				AND d.auction_id='$id'";
-
+	$sql="SELECT u.fullname, u.email, d.* FROM user u, auction_detail d WHERE u.id=d.user_id AND d.auction_id='$id' ORDER BY d.bid_amount desc";
 	$result = $conn->query($sql);
     $rows = array();
 	if($result->num_rows != 0)
@@ -72,12 +67,11 @@ if($request=="get_biders"){
 if($request=="get_biders_user"){
 	$user_id = $_POST['user_id'];
 	$sql="SELECT a.*, d.bid_amount, (SELECT count(*) FROM auction_detail auc WHERE auc.auction_id=d.auction_id) as 'total_bids', (SELECT MAX(bid_amount) FROM auction_detail auc WHERE auc.auction_id=d.auction_id) as 'max_amount' 
-			FROM user u, auction_detail d, auctions a 
-				WHERE u.id=d.user_id 
-				AND d.auction_id=a.id 
-				AND d.id = (SELECT MAX(id) FROM auction_detail WHERE auction_detail.auction_id = d.auction_id AND auction_detail.user_id=d.user_id)
-				AND d.user_id='$user_id'
-				GROUP BY d.auction_id";
+			FROM auction_detail d, auctions a 
+			WHERE d.auction_id=a.id 
+			AND d.bid_amount = (SELECT MAX(bid_amount) FROM auction_detail WHERE auction_detail.auction_id = d.auction_id AND auction_detail.user_id=d.user_id)
+			AND d.user_id='$user_id'
+			GROUP BY d.auction_id";
 
 	$result = $conn->query($sql);
     $rows = array();
@@ -98,8 +92,7 @@ if($request=="get_biders_user"){
 
 if($request=="get_buyers"){
 	$id = $_POST['id'];
-	$sql="
-		SELECT u.fullname, u.email, d.* FROM user u, raffle_detail d WHERE u.id=d.user_id AND d.raffle_id='$id'";
+	$sql="SELECT u.fullname, u.email, d.* FROM user u, raffle_detail d WHERE u.id=d.user_id AND d.raffle_id='$id'";
 	$result = $conn->query($sql);
     $rows = array();
 	if($result->num_rows != 0)
@@ -184,6 +177,26 @@ if($request=="get_contact"){
 	echo json_encode($return);
 }
 
+if($request=="get_users"){
+	$sql="SELECT * FROM user WHERE email != '' order by admin desc, id desc";
+	$result = $conn->query($sql);
+    $rows = array();
+	if($result->num_rows != 0)
+	{
+		while ($row = $result -> fetch_assoc()) {
+	       $rows[] = $row;
+
+	    }
+		$return['status']=200;
+		$return['data']=$rows;
+	}	 
+	else{
+		$return['status']=201;
+		$return['message']="There is no result";
+	}
+	echo json_encode($return);
+}
+
 if($request=="create_auction"){
 	$name = $_POST['name'];
 	$desc = $_POST['desc'];
@@ -234,6 +247,15 @@ if($request=="save_auction_image_full"){
 	$sql = "UPDATE auctions SET image_full='".$image."' WHERE id='".$id."'";
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
+	$return['status']=200;
+	echo json_encode($return);
+}
+
+if($request=="auction_paid"){
+	$id = $_POST['id'];
+	$amount = $_POST['amount'];
+	$sql = "UPDATE auctions SET paid_price='".$amount."', paid_status='paid' WHERE id='".$id."'";
+	$result = $conn->query($sql);
 	$return['status']=200;
 	echo json_encode($return);
 }
@@ -327,13 +349,14 @@ if($request=="contact"){
 if($request=="buy_donate"){
 	$user_id = $_POST['user_id'];
 	$price = $_POST['price'];
+	$add_gift = isset($_POST['add_gift']) ? $_POST['add_gift'] : '0';
 	$create_time = date("Y-m-d h:i:sa");
 
 	$sql="SELECT * FROM user WHERE id='$user_id'";
 	$result = $conn->query($sql);
     $rowUser = $result->fetch_assoc();
 
-	$sql = "INSERT INTO donate (user_id,amount,create_time,status) VALUES ('".$user_id."','".$price."','".$create_time."','0')";
+	$sql = "INSERT INTO donate (user_id,amount,create_time,add_gift,status) VALUES ('".$user_id."','".$price."','".$create_time."','".$add_gift."','0')";
 	$result = $conn->query($sql);
 	$insert_id = $conn->insert_id;
 

@@ -94,9 +94,8 @@ require('footer.php');
 
 <script type="text/javascript">
 	var donate_value = 50;
+	var add_gift = '0';
 </script>
 <script src="https://www.paypalobjects.com/api/checkout.js"></script>
 
 <script src="assets/js/donate.js"></script>
-
-

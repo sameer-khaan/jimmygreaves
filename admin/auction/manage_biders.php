@@ -27,7 +27,7 @@
                         <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                             <thead>
                             <tr>
-                                <th>FullName</th>
+                                <th>Name</th>
                                 <th>Email</th>
                                 <th>Bid time</th>
                                 <th>Bid amount</th>
@@ -71,11 +71,20 @@ require('../footer.php');
                 biders = data;
                 var string = "";
                 for(var i=0; i<data.length; i++){
+
+                    const options = { hour12: true, year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit' };
+						
+                    var bid_time = data[i]['bid_time'];
+                    bid_time = bid_time.replace('pm','');
+                    bid_time = bid_time.replace('am','');
+                    bid_time = new Date(bid_time);
+                    bid_time = bid_time.toLocaleString("en-UK", options);
+                    
                     string+=`<tr>
                         <td>`+data[i]['fullname']+`</td>
                         <td>`+data[i]['email']+`</td>
-                        <td>`+data[i]['bid_time']+`</td>
-                        <td>`+data[i]['bid_amount']+`</td>
+                        <td>`+bid_time+`</td>
+                        <td>£`+data[i]['bid_amount']+`</td>
                     </tr>
                     `;
                 }

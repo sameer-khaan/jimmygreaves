@@ -27,8 +27,7 @@
                                 <th>User Email</th>
                                 <th>Message</th>
                                 <th>Time</th>
-                                <th></th>
-
+                                <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -67,6 +66,13 @@ require('../footer.php');
     				auctions = data;
     				var string = "";
     				for(var i=0; i<data.length; i++){
+
+						const options = { hour12: true, year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit' };
+						
+						var time = data[i]['time'];
+						time = new Date(time);
+						time = time.toLocaleString("en-UK", options);
+						
     					 string+=`<tr>
                     		<td>
                           `+(i+1)+`
@@ -75,9 +81,9 @@ require('../footer.php');
                     		<td>`+data[i]['number']+`</td>
                     		<td>`+data[i]['email']+`</td>
                     		<td>`+data[i]['message']+`</td>
-                    		<td>`+data[i]['time']+`</td>
+                    		<td>`+time+`</td>
                     		<td>
-                        	    <button class="btn btn-danger remove_btn" id="`+data[i]['id']+`"><i class="far fa-trash-alt"></i></button>
+                        	    <button class="btn btn-xs btn-danger remove_btn" id="`+data[i]['id']+`"><i class="far fa-trash-alt"></i></button>
                         	</td>
                     	</tr>`;
     				}

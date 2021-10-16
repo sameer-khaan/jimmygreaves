@@ -41,42 +41,21 @@ if(!isset($_SESSION['login_flag']) || $_SESSION['login_flag']!="1"){
 		<div class="col-md-9" style="margin-bottom:30px">
 			<p style="font-size: 28px; color: #343A42; font-weight: 500">My Bids</p>
 			<div id="bids_div" class="row">
-				<!-- <div class="row">
-					<img class="col-md-3" src="assets/img/auction2.png" />
-					<div class="col-md-9">
-						<p>Auction memorabilia item name goes here</p>
-						<div id="status">
-							<span class="bid_count bid_status">3 bids</span>
-							<span id="timer"> <ion-icon name="alarm-outline"></ion-icon> 1d 17h left (Tue, 15:31)</span>
-						</div>
-						<p></p>
-						<div class="row">
-							<div class="col-6 col-md-4">
-								<p style="font-size:16px">Bid Amount:</p>
-								<p>50</p>
-							</div>
-							<div class="col-6 col-md-4">
-								<p style="font-size:16px">Current bid:</p>
-								<p>50</p>
-							</div>
-						</div>
-					</div>
-				</div> -->
 			</div>
 		</div>
 	</div>
 </div>
 
-<div class="modal" id="bid_status_modal" tabindex="-1" >
+<div class="modal" id="make_payment_modal" tabindex="-1" >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title bid_count" id="exampleModalLabel"></h5>
+        <h5 class="modal-title payment_head" id="exampleModalLabel"></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body" id="current_bids_div">
+      <div class="modal-body" id="current_payment_div">
 	         
       </div>
     </div>
@@ -87,6 +66,7 @@ if(!isset($_SESSION['login_flag']) || $_SESSION['login_flag']!="1"){
 require('footer.php');
 ?>
 
+<script src="https://www.paypalobjects.com/api/checkout.js"></script>
 <script type="text/javascript">
   	var user_id = '<?php echo $user_id?>';
   	show();
@@ -123,21 +103,32 @@ require('footer.php');
 						var end_hour = end_date.getHours();
 						var end_min  = end_date.getMinutes();
 						var pm_am = end_hour>=12 ? 'PM' : 'AM';
+						var payment = '';
 						var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
 						expire_flag = days>0 ? true : false;
 						images = JSON.parse(data[i]['image']);
 						if(data[i]['bid_amount'] == data[i]['max_amount']) {
-							var tag = `<p class="btn btn-sm btn-success mx-5" style="font-size:15px;"> Currently winning </p>`;
+							if(!expire_flag){
+								var tag = `<p class="btn btn-sm btn-success ml-5 mr-2" style="font-size:15px;"> You've won </p>`;
+								if(data[i]['paid_status'] == 'paid'){
+									var payment = `<p class="btn btn-sm btn-success mr-2" style="font-size:15px;font-weight:700;line-height:28px;"> Payment Paid </p>`;
+								}else{
+									var payment = `<p class="btn btn-sm btn-danger mr-2" style="font-size:15px;font-weight:700;line-height:28px;"> Payment Pending </p> <p><button class="btn btn-secondary make_payment" data-auction_id="`+data[i]['id']+`" data-total_price="`+data[i]['bid_amount']+`" data-auction_name="`+data[i]['auction_name']+`">Make Payment</button></p>`;
+								}
+							}else{
+								var tag = `<p class="btn btn-sm btn-success mx-5" style="font-size:15px;"> Currently winning </p>`;
+							}
 						} else {
 							var tag = `<p class="btn btn-sm btn-primary mx-5" style="font-size:15px;"> You've been outbid </p>`;
 						}
-						string+=`<div class="row mb-5">
+						string+=`<div class="row col-md-12 mb-5">
 									<img class="col-md-3" src="api/upload/auction/`+data[i]['id']+`/`+images[0]+`" />
 									<div class="col-md-9">
 										<p>`+data[i]['auction_name']+`</p>
 										<div id="status">
 											<p>£`+data[i]['bid_amount']+`</p>
 											`+tag+`
+											`+payment+`
 										</div>
 										<div id="status">
 											<span class="bid_count bid_status" data-auction_id="`+data[i]['id']+`">`+data[i]['total_bids']+` bids</span>
@@ -147,6 +138,110 @@ require('footer.php');
 								</div>`;
 					}
 					$("#bids_div").html(string);
+
+					$(".make_payment").click(function(){
+						var auction_id = $(this).data('auction_id');
+						var auction_name = $(this).data('auction_name');
+						var total_price = $(this).data('total_price');
+						
+						var payment = `<div id="paypal-button" style="width: 100px; align-items: center; align-self: center; justify-content: center"></div>`;
+						var string = "";
+						string +=`<div>
+									<p>£`+total_price+`</p>
+									<p>`+payment+`</p>
+								</div>`;
+						
+						$(".payment_head").html(auction_name);
+						$("#current_payment_div").html(string);
+						$("#make_payment_modal").modal('show');
+
+						var paypalActions;
+						paypal.Button.render({
+							// Configure environment
+							env: 'production',
+							//env: 'sandbox',
+							client: {
+								//sandbox: 'AUOIw9T0HlHoFXrskX2L8M6WWkbH_QhN2k3BtJRUlx0IBEen8S_mOVgdIJ5h2ml37Hc4GX2WTR9KDF0u',
+								//production: 'ASAq7Q3AwES6JQ9Mc_Od5doolAQkzGxjyQ74oNA0LkBEbVz2eO38eLnNOF7iOMWWp6vsUcWjFGvsjTCJ'
+								production: 'ARiEn-rP-QtqFV7bROZWlrinq2AEjkoNkOVB7EIpJ183yxM_nqPdOE5zCNeIa0rlw-F8MrRi1DeBsjFz'
+							},
+							// Customize button (optional)
+							locale: 'en_US',
+							style: {
+								size: 'responsive',
+								color: 'blue',
+								shape: 'rect',
+								label:'paypal',
+								tagline: false
+							},
+							validate: function(actions) {
+								actions.disable(); // Allow for validation in onClick()
+								paypalActions = actions; // Save for later enable()/disable() calls
+							},
+							onClick: function(data,actions){
+								paypalActions.enable();
+							},
+							// Enable Pay Now checkout flow (optional)
+							commit: true,
+							// Set up a payment
+							payment: function(data, actions) {
+								var value = parseFloat(total_price);
+								return actions.payment.create({
+								transactions: [{
+									amount: {
+									total: value,
+									currency: 'GBP',
+									}
+								}]
+								});
+							},
+							// Execute the payment
+							onAuthorize: function(data, actions) {
+							return actions.payment.execute().then(function() {
+								
+								$.ajax({
+								url:"api/ajax.php",
+								data: { 
+									request:'auction_paid',
+									id:auction_id,
+									amount:total_price
+								},
+								async:false,
+								type: 'post',
+								success: function(re)
+								{
+									var result = JSON.parse(re);
+									if(result['status']=="200"){
+										$("#make_payment_modal").modal('hide');
+										swal("Success","Successfully Paid","success");
+										location.reload();
+										/*
+										var data = {
+											service_id: YOUR_SERVICE_ID,
+											template_id: RAFFLE_TEMP_ID,
+											user_id: YOUR_USER_ID,
+											template_params: result['data']
+										};
+						
+										$.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+											type: 'POST',
+											data: JSON.stringify(data),
+											contentType: 'application/json'
+										}).done(function() {
+											console.log('Your mail is sent!');
+											swal("Success","Successfully Bought","success");
+										}).fail(function(error) {
+											console.log('Oops... ' + JSON.stringify(error));
+											swal("Success","Successfully Bought","success");
+										});
+										*/
+									}
+								}
+								});
+							});
+							}
+						}, '#paypal-button');
+					});
 				}
 				else {
 					string=`<div class="row mb-5">
@@ -159,41 +254,6 @@ require('footer.php');
 			}
 	    }); 
 	}
-
-	$(".bid_status").click(function(){
-		var id = $(this).data('auction_id');
-		$.ajax({
-			url:"api/ajax.php",
-			data: {
-				request:'get_biders',
-				id:id
-			},
-			async:false,
-			type: 'post',
-			success: function(re) 
-			{
-				var result = JSON.parse(re);
-				if(result['status']=="200"){
-					$(".bid_count").html(result['data'].length+" bids");
-					var string = "";
-					for(var i=0; i<result['data'].length; i++){
-						string +=`<div>
-									<p id="bid_amount_modal">£`+result['data'][i]['bid_amount']+`</p>
-									<p id="bid_time">`+result['data'][i]['bid_time']+`</p>
-								</div>`;
-						if(max_bid_amount<result['data'][i]['bid_amount'])
-							max_bid_amount=result['data'][i]['bid_amount'];
-					}
-					$("#current_bids_div").html(string);
-					$("#bid_status_modal").modal('show');
-				}
-				else{
-					$(".bid_count").html("0 bids");
-					$("#bid_status_modal").modal('show');
-				}
-			}
-		});
-	});
 </script>
 
 <script src="assets/js/three_hover.js"></script>

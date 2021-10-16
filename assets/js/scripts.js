@@ -110,9 +110,7 @@ $("#signin_button").click(function(){
                     user_id = result['user_id'];
                     user_email = result['email'];
                     $("#signin_modal").modal('hide');
-
                     location.reload();
-
                 }
                 else{
                     swal("Info","Incorrect username or password","info");
@@ -146,7 +144,7 @@ $("#signup_button").click(function(){
               password:password,
               email:email,
               accept_checkbox:accept_checkbox
-             },
+          },
           type: 'post',
           success: function(re) 
           {

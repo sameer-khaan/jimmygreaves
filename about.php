@@ -76,7 +76,7 @@ require('header.php');
                 Good luck with the bidding and your raffle tickets.<br><br>
                 
                 Warm regards,<br>
-                Danny.
+                Danny & Andy.
             </p>
 	    </div>
 	</div>

@@ -41,13 +41,12 @@ $name= $_GET['n'];
 	    			<p style="font-size:26px;font-weight: 800;" id="max_current_bid_amount"></p>
 	    			<span class="bid_count" id="bid_status"></span>
 	    		</div>
-	    		<div class="col-md-4">
+	    		<div class="col-md-4 if_not_expired">
 	    			<span id="bid_amount_desc">Enter £251.00 or more</span>
 	    			<input id="input_bid_amount" type="number" placeholder="£251.00" />
 	    		</div>
-	    		<div class="col-md-4">
+	    		<div class="col-md-4 if_not_expired">
 	    			<button class="bid_button">Place bid</button>
-	    			
 	    		</div>
 	    	</div>
 	    	<div id="description_div" style="margin-top:30px">

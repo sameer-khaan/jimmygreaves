@@ -8,7 +8,8 @@ $(".select_method_button").click(function(){
 		$("#donate_method_text").html("Make a one off donation of:");
 
 	}
-})
+});
+
 $(".amount_select_btn").click(function(){
 	$(".amount_select_btn").removeClass('selected');
 	var value = $(this).attr('id');
@@ -16,6 +17,15 @@ $(".amount_select_btn").click(function(){
 	$(this).addClass("selected");
 	donate_value = parseInt(value);
 });
+
+$("#checkbox_input").click(function(){
+  if($("#checkbox_input:checked").val() == 'on') {
+    add_gift = '1';
+  }else{
+    add_gift = '0';
+  }
+});
+
 paypal.Button.render({
         // Configure environment
         env: 'production',
@@ -36,7 +46,6 @@ paypal.Button.render({
         },
 
         validate: function(actions) {
-          console.log("validate called");
           actions.disable(); // Allow for validation in onClick()
           paypalActions = actions; // Save for later enable()/disable() calls
         },
@@ -80,7 +89,8 @@ paypal.Button.render({
                   request:'buy_donate',
                   user_id:user_id,
                   price:donate_value,
-                 },
+                  add_gift:add_gift
+              },
               async:false,
               type: 'post',
               success: function(re)

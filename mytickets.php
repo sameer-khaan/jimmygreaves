@@ -110,7 +110,7 @@ require('footer.php');
 						var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
 						expire_flag = days>0 ? true : false;
 						images = JSON.parse(data[i]['image']);
-						string+=`<div class="row mb-5">
+						string+=`<div class="row col-md-12 mb-5">
 									<img class="col-md-3" src="api/upload/raffle/`+data[i]['id']+`/`+images[0]+`" />
 									<div class="col-md-9">
 										<p>`+data[i]['raffle_name']+`</p>
@@ -119,13 +119,17 @@ require('footer.php');
 										</div>
 										<p></p>
 										<div class="row">
-											<div class="col-6 col-md-4">
-												<p style="font-size:18px" class="m-0">Amount Paid:</p>
-												<p>£`+data[i]['price']+`</p>
+											<div class="col-12">
+												<p>
+												<span style="background:none;font-size:18px;" class="m-0">Tickets Bought:</span>
+												<strong>`+data[i]['buy_amount']+`</strong>
+												</p>
 											</div>
-											<div class="col-6 col-md-4">
-												<p style="font-size:18px" class="m-0">Tickets Bought:</p>
-												<p>`+data[i]['buy_amount']+`</p>
+											<div class="col-12">
+												<p>
+												<span style="background:none;font-size:18px;" class="m-0">At Price:</span>
+												<strong>£`+data[i]['price']+`</strong>
+												</p>
 											</div>
 										</div>
 									</div>

@@ -9,7 +9,7 @@
                 <div class="page-title-box">
                     <div class="float-right">
                     </div>
-                    <h4 class="page-title">Donates</h4>
+                    <h4 class="page-title">Users</h4>
                 </div><!--end page-title-box-->
             </div><!--end col-->
         </div>
@@ -24,9 +24,8 @@
                                 <th>#</th>
                                 <th>User Name</th>
                                 <th>User Email</th>
-                                <th>Donate Time</th>
-                                <th>Donate Amount</th>
-                                <th>Add Gift</th>
+                                <th>User Type</th>
+                                <th>Mailing List</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -53,7 +52,7 @@ require('../footer.php');
 		$.ajax({
 	      url:"<?php echo $site_url?>api/ajax.php",
 	      data: { 
-	      		request:'get_donates',
+	      		request:'get_users',
 	         },
 	      type: 'post',
 	      success: function(re) 
@@ -65,18 +64,17 @@ require('../footer.php');
     				auctions = data;
     				var string = "";
     				for(var i=0; i<data.length; i++){
-						const options = { hour12: true, year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit' };
 						
-						var create_time = data[i]['create_time'];
-						create_time = create_time.replace('pm','');
-						create_time = create_time.replace('am','');
-						create_time = new Date(create_time);
-						create_time = create_time.toLocaleString("en-UK", options);
-
-						if(data[i]['add_gift'] == '1') {
-							var gift = 'yes';
+						if(data[i]['admin'] == '1') {
+							var type = 'Admin';
 						} else {
-							var gift = 'no';
+							var type = 'User';
+						}
+
+						if(data[i]['mailing_list'] == '1') {
+							var list = 'yes';
+						} else {
+							var list = 'no';
 						}
 
     					string+=`<tr>
@@ -85,9 +83,8 @@ require('../footer.php');
                     		</td>
                     		<td>`+data[i]['fullname']+`</td>
                     		<td>`+data[i]['email']+`</td>
-                    		<td>`+create_time+`</td>
-                    		<td>£`+data[i]['amount']+`</td>
-							<td>`+gift+`</td>
+                    		<td>`+type+`</td>
+                    		<td>`+list+`</td>
                     	</tr>`;
     				}
     				$("tbody").html(string);
@@ -122,7 +119,7 @@ require('../footer.php');
 		$.ajax({
 	      url:"<?php echo $site_url?>api/ajax.php",
 	      data: { 
-	      		request:'delete_donate',
+	      		request:'delete_contact',
 	      		id:id
 	         },
 	      type: 'post',

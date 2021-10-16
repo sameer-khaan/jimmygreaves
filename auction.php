@@ -129,8 +129,6 @@ require('footer.php');
 				}
 				$("#auction_section_2").html(string);
 	        }
-	        else{
-	        }
 	      }
 	    }); 
 	}

@@ -35,11 +35,11 @@
 
 	    	<div id="bid_div" class="row">
 	    		<div class="col-md-6">
-	    			<div >
+	    			<div>
 		    			<p style="font-size:16px">Price</p>
 		    			<p style="font-size:26px;font-weight: 800;" id="price">£10.00</p>
 		    		</div>
-		    		<div >
+		    		<div class="if_not_expired">
 		    			<span>Number of tickets</span><br>
 		    			<select id="select_bid_amount">
 		    				<option value="1" selected="">1</option>
@@ -58,10 +58,9 @@
 		    		</div>
 	    		</div>
 	    		
-	    		<div class="col-md-6">
-
+	    		<div class="col-md-6 if_not_expired">
 	    			<span id="total_price">£20.00</span>
-						<div id="paypal-button" style="width: 100px; align-items: center; align-self: center; justify-content: center"></div>
+					<div id="paypal-button" style="width: 100px; align-items: center; align-self: center; justify-content: center"></div>
 	    		</div>
 	    	</div>
 	    	<div id="description_div" style="margin-top:30px">

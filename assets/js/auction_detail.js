@@ -66,11 +66,15 @@ function get_auction_by_id(){
               var end_min  = end_date.getMinutes();
               var pm_am = end_hour>=12 ? 'PM' : 'AM';
               var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
+              
               expire_flag = days>0 ? true : false;
               $("#left_time").html(expir_date);
+              if(!expire_flag) {
+                //$(".if_not_expired").css('display','none');
+              }
             }
           }
-    });     
+    });
 }
 
 function openAuctionModal() {
@@ -129,9 +133,17 @@ function get_biders(){
                 $(".bid_count").html(result['data'].length+" bids");
                 var string = "";
                 for(var i=0; i<result['data'].length; i++){
+                  const options = { hour12: true, year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit' };
+						
+                    var bid_time = result['data'][i]['bid_time'];
+                    bid_time = bid_time.replace('pm','');
+                    bid_time = bid_time.replace('am','');
+                    bid_time = new Date(bid_time);
+                    bid_time = bid_time.toLocaleString("en-UK", options);
+
                     string +=`<div>
                                 <p id="bid_amount_modal">£`+result['data'][i]['bid_amount']+`</p>
-                                <p id="bid_time">`+result['data'][i]['bid_time']+`</p>
+                                <p id="bid_time">`+bid_time+`</p>
                             </div>`;
                     if(max_bid_amount<result['data'][i]['bid_amount'])
                         max_bid_amount=result['data'][i]['bid_amount'];

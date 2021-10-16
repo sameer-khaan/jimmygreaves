@@ -28,10 +28,13 @@
                                 <th>Delivery</th>
                                 <th>Terms</th>
                                 <th>Init Price</th>
-                                <th>Create Time</th>
+                                <th>Paid Price</th>
+                                <th>Start Time</th>
                                 <th>End Time</th>
                                 <th>Status</th>
-                                <th>Action</th>
+								<th>Payment</th>
+								<th>Biders</th>
+                                <th style="width: 135px;">Action</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -167,6 +170,36 @@ require('../footer.php');
       				auctions = data;
       				var string = "";
       				for(var i=0; i<data.length; i++){
+						
+						const options = { hour12: true, year: 'numeric', month: 'numeric', day: 'numeric', hour: '2-digit', minute:'2-digit' };
+						
+						var create_time = data[i]['create_time'];
+						create_time = create_time.replace('pm','');
+						create_time = create_time.replace('am','');
+						create_time = new Date(create_time);
+						create_time = create_time.toLocaleString("en-UK", options);
+
+						var end_time = new Date(data[i]['end_time']);
+                        end_time = end_time.toLocaleString("en-UK", options);
+
+						var end_date = new Date(data[i]['end_time']);
+						var now   = new Date();
+						var diff  = new Date(end_date - now);
+						var days  = parseInt(diff/1000/60/60/24);
+						expire_flag = days>0 ? true : false;
+
+						if(!expire_flag){
+							var expired_status = '<span class="text-danger">Expired</span>';
+						}else{
+							var expired_status = '<span class="text-success">Active</span>';
+						}
+
+						if(data[i]['paid_price'] > 0){
+							data[i]['paid_price'] = data[i]['paid_price'];
+						}else{
+							data[i]['paid_price'] = 0;
+						}
+
       					var images = JSON.parse(data[i]['image']);
       					var first_image = images.length==0 ? "" : "<?php echo $site_url?>api/upload/auction/"+data[i]['id']+"/"+images[0]+"";	
       					 string+=`<tr>
@@ -177,14 +210,17 @@ require('../footer.php');
                   		<td>`+data[i]['description']+`</td>
                   		<td>`+data[i]['delivery']+`</td>
                   		<td>`+data[i]['terms']+`</td>
-                  		<td>`+data[i]['init_price']+`</td>
-                  		<td>`+data[i]['create_time']+`</td>
-                  		<td>`+data[i]['end_time']+`</td>
-                      <td><a href="manage_biders.php?id=`+data[i]['id']+`&n=`+data[i]['auction_name']+`">`+data[i]['bid_count']+` bids</a></td>
+                  		<td>£`+data[i]['init_price']+`</td>
+                  		<td>£`+data[i]['paid_price']+`</td>
+                  		<td>`+create_time+`</td>
+                  		<td>`+end_time+`</td>
+                  		<td>`+expired_status+`</td>
+						<td>`+data[i]['paid_status']+`</td>
+                      	<td><a href="manage_biders.php?id=`+data[i]['id']+`&n=`+data[i]['auction_name']+`">`+data[i]['bid_count']+` bids</a></td>
                   		<td>
-                  			<button class="btn btn-primary edit_btn" id="`+data[i]['id']+`" index="`+i+`"><i style="color:white" class="far fa-edit"></i></button>
-                      	    <button class="btn btn-danger remove_btn" id="`+data[i]['id']+`"><i class="far fa-trash-alt"></i></button>
-                      	    <a href="manage_images.php?id=`+data[i]['id']+`"><button class="btn btn-success"><i class="fa fa-upload"></i></button></a>
+                  			<button class="btn btn-xs btn-primary edit_btn" id="`+data[i]['id']+`" index="`+i+`"><i style="color:white" class="far fa-edit"></i></button>
+                      	    <button class="btn btn-xs btn-danger remove_btn" id="`+data[i]['id']+`"><i class="far fa-trash-alt"></i></button>
+                      	    <a href="manage_images.php?id=`+data[i]['id']+`"><button class="btn btn-xs btn-success"><i class="fa fa-upload"></i></button></a>
                       	</td>
                   	</tr>`;
       				}

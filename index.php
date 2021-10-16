@@ -86,7 +86,7 @@ require('header.php');
             Good luck with the bidding and your raffle tickets.<br><br>
             
             Warm regards,<br>
-            Danny.
+            Danny & Andy.
         </p>
         <span class="btn_underline"><a href="about.php">About</a></span>
     </div>
@@ -102,7 +102,7 @@ require('header.php');
             Good luck with the bidding and your raffle tickets.<br><br>
             
             Warm regards,<br>
-            Danny.
+            Danny & Andy.
         </p>
         <span class="btn_underline"><a href="about.php">About</a></span>
 </div>

@@ -68,15 +68,16 @@ function get_auction_by_id(){
               // var year = end_date.getFullYear();
               var day = end_date.getDate();
               var to  = day+" "+month;
-
-                    var end_hour = end_date.getHours();
-                    var end_min  = end_date.getMinutes();
-                    var pm_am = end_hour>=12 ? 'PM' : 'AM';
-                    var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
+              var end_hour = end_date.getHours();
+              var end_min  = end_date.getMinutes();
+              var pm_am = end_hour>=12 ? 'PM' : 'AM';
+              var expir_date = days>0 ? days+"d"+" "+hours+"h left ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")" : "Expired ( "+to+" "+end_hour+":"+end_min+" "+pm_am+ ")";
 
               expire_flag = days>0 ? true : false;
-
               $("#left_time").html(expir_date);
+              if(!expire_flag) {
+                //$(".if_not_expired").css('display','none');
+              }
             }
             else{
             }
@@ -174,7 +175,6 @@ paypal.Button.render({
         },
 
         validate: function(actions) {
-          console.log("validate called");
           actions.disable(); // Allow for validation in onClick()
           paypalActions = actions; // Save for later enable()/disable() calls
         },
@@ -186,7 +186,7 @@ paypal.Button.render({
           }
           else{
             if(!expire_flag){
-                //err_msg = "Time is already expired";
+                err_msg = "Time is already expired";
             }
             
             if (err_msg!=""){
