@@ -119,7 +119,7 @@ require('footer.php');
 					 string+=`<div class="col-md-5" style="margin:1% 3%;padding:20px;box-shadow:0px 15px 20px 0px rgb(0 0 0 / 10%);">
 				    	<a href="auction_detail.php?id=`+data[i]['id']+`&n=`+data[i]['auction_name']+`"><img class="img-thumbnail" style="width:100%; max-height:450px; max-width:450px; box-shadow: 0px 2px 10px 0px rgb(0 0 0 / 15%);" src="`+first_image+`" /></a>
 				    	<a href="auction_detail.php?id=`+data[i]['id']+`&n=`+data[i]['auction_name']+`"><p id="header">`+data[i]['auction_name']+`</p></a>
-				    	<p id="price">£`+data[i]['init_price']+`</p>
+				    	<p id="price">£`+data[i]['max_amount']+`</p>
 				    	<p id="desc">`+data[i]['description']+`</p>
 				    	<div id="status" style="display:flex">
 				    		<span>`+data[i]['bid_count']+` bids</span>
