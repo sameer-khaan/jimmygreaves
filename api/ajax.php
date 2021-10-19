@@ -134,7 +134,7 @@ if($request=="get_buyers_user"){
 }
 
 if($request=="get_donates"){
-	$sql="SELECT u.fullname, u.email, d.* FROM user u, donate d WHERE u.id=d.user_id ORDER BY time d.create_time DESC";
+	$sql="SELECT u.fullname, u.email, d.* FROM user u, donate d WHERE u.id=d.user_id ORDER BY d.create_time DESC";
 	$result = $conn->query($sql);
     $rows = array();
 	if($result->num_rows != 0)
