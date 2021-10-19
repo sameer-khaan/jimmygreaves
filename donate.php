@@ -25,11 +25,11 @@ require('header.php');
 		<p id="text_desc">
 			‘Dad greeting his big pal, Dave McKay, with Bobby Charlton and Gordon Banks looking on’.
 		</p>
-		<div class="select_method_div">
+		<div class="select_method_div" style="display: none;">
 			<button class="select_method_button selected" id="one_off">One off</button>
 			<button class="select_method_button" id="monthly" style="margin-left:30px">Monthly</button>
 		</div>
-		<div class="select_amount_div row">
+		<div class="select_amount_div row mt-5">
 			<div class="col-md-6">
 				<p id="donate_method_text">Make a one off donation of:</p>	
 				<div style="display: flex">
