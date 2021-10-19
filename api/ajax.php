@@ -3,11 +3,8 @@ include __DIR__ . "/../db.php";
 $request = $_POST['request'];
 
 if($request=="get_auctions"){
-	$sql="
-		SELECT a.*, IFNULL(d.bid_cnt, 0) AS bid_count
-			FROM auctions a 
-			LEFT JOIN (SELECT auction_id, COUNT(id) AS bid_cnt FROM auction_detail GROUP BY auction_id) d 
-				ON a.id = d.auction_id";
+	$sql="SELECT a.*, IFNULL(d.bid_cnt, 0) AS bid_count, (SELECT MAX(bid_amount) FROM auction_detail auc WHERE auc.auction_id=d.auction_id) as max_amount 
+	FROM auctions a LEFT JOIN (SELECT auction_id, COUNT(id) AS bid_cnt FROM auction_detail GROUP BY auction_id) d ON a.id = d.auction_id";
 	$result = $conn->query($sql);
     $rows = array();
 	if($result->num_rows != 0)
