@@ -61,6 +61,22 @@ if($request=="get_biders"){
 	echo json_encode($return);
 }
 
+if($request=="total_bids"){
+	$sql="SELECT COUNT(id) as total_bid FROM auction_detail";
+	$result = $conn->query($sql);
+	if($result->num_rows != 0)
+	{
+		$row = $result->fetch_assoc();
+		$return['status']=200;
+		$return['data']=$row['total_bid'];
+	}	 
+	else{
+		$return['status']=201;
+		$return['message']="There is no result";
+	}
+	echo json_encode($return);
+}
+
 if($request=="get_biders_user"){
 	$user_id = $_POST['user_id'];
 	$sql="SELECT a.*, d.bid_amount, (SELECT count(*) FROM auction_detail auc WHERE auc.auction_id=d.auction_id) as 'total_bids', (SELECT MAX(bid_amount) FROM auction_detail auc WHERE auc.auction_id=d.auction_id) as 'max_amount' 
@@ -153,6 +169,22 @@ if($request=="get_donates"){
 	echo json_encode($return);
 }
 
+if($request=="total_donations"){
+	$sql="SELECT SUM(amount) as total_amount FROM donate";
+	$result = $conn->query($sql);
+	if($result->num_rows != 0)
+	{
+		$row = $result->fetch_assoc();
+		$return['status']=200;
+		$return['data']=$row['total_amount'];
+	}	 
+	else{
+		$return['status']=201;
+		$return['message']="There is no result";
+	}
+	echo json_encode($return);
+}
+
 if($request=="get_contact"){
 	$sql="SELECT * FROM contact order by time desc";
 	$result = $conn->query($sql);
@@ -173,6 +205,22 @@ if($request=="get_contact"){
 	echo json_encode($return);
 }
 
+if($request=="total_contacts"){
+	$sql="SELECT COUNT(id) as total_contact FROM contact";
+	$result = $conn->query($sql);
+	if($result->num_rows != 0)
+	{
+		$row = $result->fetch_assoc();
+		$return['status']=200;
+		$return['data']=$row['total_contact'];
+	}	 
+	else{
+		$return['status']=201;
+		$return['message']="There is no result";
+	}
+	echo json_encode($return);
+}
+
 if($request=="get_users"){
 	$sql="SELECT * FROM user WHERE email != '' order by admin desc, id desc";
 	$result = $conn->query($sql);
@@ -185,6 +233,22 @@ if($request=="get_users"){
 	    }
 		$return['status']=200;
 		$return['data']=$rows;
+	}	 
+	else{
+		$return['status']=201;
+		$return['message']="There is no result";
+	}
+	echo json_encode($return);
+}
+
+if($request=="total_users"){
+	$sql="SELECT COUNT(id) as total_user FROM user";
+	$result = $conn->query($sql);
+	if($result->num_rows != 0)
+	{
+		$row = $result->fetch_assoc();
+		$return['status']=200;
+		$return['data']=$row['total_user'];
 	}	 
 	else{
 		$return['status']=201;
@@ -383,6 +447,22 @@ if($request=="get_raffles"){
 	    }
 		$return['status']=200;
 		$return['data']=$rows;
+	}	 
+	else{
+		$return['status']=201;
+		$return['message']="There is no result";
+	}
+	echo json_encode($return);
+}
+
+if($request=="total_tickets"){
+	$sql="SELECT SUM(buy_amount) as total_ticket FROM raffle_detail";
+	$result = $conn->query($sql);
+	if($result->num_rows != 0)
+	{
+		$row = $result->fetch_assoc();
+		$return['status']=200;
+		$return['data']=$row['total_ticket'];
 	}	 
 	else{
 		$return['status']=201;

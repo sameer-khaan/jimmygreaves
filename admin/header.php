@@ -34,7 +34,7 @@
         <div class="loading-gif"></div>
         <div class="topbar">
             <div class="topbar-left">
-                <a href="<?php echo $site_url?>admin/auction/" class="logo">
+                <a href="<?php echo $site_url?>admin/home/" class="logo">
                     <span>
                         <img src="<?php echo $site_url?>assets/img/logo2.png" alt="logo-small" class="logo-sm">
                     </span>
@@ -69,9 +69,9 @@
                     <div class="menu-body slimscroll">
                         <div id="MetricaOthers" class="main-icon-menu-pane active">
                             <ul class="nav metismenu" id="main_menu_side_nav">
-                                <!-- <li class="nav-item"> -->
-                                    <!-- <a class="nav-link" href="<?php echo $site_url?>admin/user/"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">User</span></a> -->
-                                <!-- </li> -->
+                                <li class="nav-item">
+                                    <a class="nav-link" href="<?php echo $site_url?>admin/home/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Home</span></a>
+                                </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="<?php echo $site_url?>admin/auction/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Auction</span></a>
                                 </li>
