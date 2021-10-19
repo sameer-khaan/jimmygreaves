@@ -89,7 +89,7 @@ if($request=="get_biders_user"){
 
 if($request=="get_buyers"){
 	$id = $_POST['id'];
-	$sql="SELECT u.fullname, u.email, d.* FROM user u, raffle_detail d WHERE u.id=d.user_id AND d.raffle_id='$id'";
+	$sql="SELECT u.fullname, u.email, d.* FROM user u, raffle_detail d WHERE u.id=d.user_id AND d.raffle_id='$id' ORDER BY d.buy_time DESC";
 	$result = $conn->query($sql);
     $rows = array();
 	if($result->num_rows != 0)
@@ -134,8 +134,7 @@ if($request=="get_buyers_user"){
 }
 
 if($request=="get_donates"){
-	$sql="
-		SELECT u.fullname, u.email, d.* FROM user u, donate d WHERE u.id=d.user_id";
+	$sql="SELECT u.fullname, u.email, d.* FROM user u, donate d WHERE u.id=d.user_id ORDER BY time d.create_time DESC";
 	$result = $conn->query($sql);
     $rows = array();
 	if($result->num_rows != 0)
@@ -155,7 +154,7 @@ if($request=="get_donates"){
 }
 
 if($request=="get_contact"){
-	$sql="SELECT * FROM contact order by id desc";
+	$sql="SELECT * FROM contact order by time desc";
 	$result = $conn->query($sql);
     $rows = array();
 	if($result->num_rows != 0)
