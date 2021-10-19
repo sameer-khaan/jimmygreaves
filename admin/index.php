@@ -108,7 +108,7 @@
               {
                 var result = JSON.parse(re);
                 if(result['status']=="200")
-					window.location.href = '<?php echo $site_url?>admin/auction/index.php';                    
+					window.location.href = '<?php echo $site_url?>admin/home/index.php';                    
                 else
                     swal("Info","Incorrect username or password*","info");
               }
