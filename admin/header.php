@@ -70,22 +70,22 @@
                         <div id="MetricaOthers" class="main-icon-menu-pane active">
                             <ul class="nav metismenu" id="main_menu_side_nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo $site_url?>admin/home/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Home</span></a>
+                                    <a class="nav-link" href="<?php echo $site_url?>admin/home/index.php"><img src="../assets/img/speedometer.png" /><span class="w-100 ml-2">Home</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo $site_url?>admin/auction/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Auction</span></a>
+                                    <a class="nav-link" href="<?php echo $site_url?>admin/auction/index.php"><img src="../assets/img/auction.png" /><span class="w-100 ml-2">Auction</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo $site_url?>admin/raffle/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Raffle</span></a>
+                                    <a class="nav-link" href="<?php echo $site_url?>admin/raffle/index.php"><img src="../assets/img/tickets.png" /><span class="w-100 ml-2">Raffle</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo $site_url?>admin/donate/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Donate</span></a>
+                                    <a class="nav-link" href="<?php echo $site_url?>admin/donate/index.php"><img src="../assets/img/charity.png" /><span class="w-100 ml-2">Donation</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo $site_url?>admin/contact/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Contact</span></a>
+                                    <a class="nav-link" href="<?php echo $site_url?>admin/contact/index.php"><img src="../assets/img/chatting.png" /><span class="w-100 ml-2">Contact</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="<?php echo $site_url?>admin/users/index.php"><ion-icon name="person-outline" style="font-size:20px; margin-right:10px"></ion-icon><span class="w-100">Users</span></a>
+                                    <a class="nav-link" href="<?php echo $site_url?>admin/users/index.php"><img src="../assets/img/users.png" /><span class="w-100 ml-2">Users</span></a>
                                 </li>
                             </ul>
                         </div>
