@@ -41,10 +41,17 @@ require('header.php');
 			</div>
 			<div class="col-md-6">
 				<p>Or enter amount</p>
-				<div style="display: flex">
+				<div style="display: flex;align-items: end;">
 					<input id="input_donation_amount" value="50" type="number" />
-					<div id="paypal-button" style="width: 200px; margin-left: 20px;align-items: center; align-self: center; justify-content: center"></div>
-				</div>		
+					<div style="display: flex;flex-direction: column;align-items: center;">
+						<div id="paypal-button" style="width: 200px; margin-left: 20px;align-items: center; align-self: center; justify-content: center"></div>
+						<?php
+						if(!isset($_SESSION['login_flag']) || $_SESSION['login_flag']!="1"){
+							echo '<div style="margin-left: 15px;color: white;"><small><i>- Account Required</i></small></div>';
+						}
+						?>
+					</div>
+				</div>
 			</div>
 
 			<div class="col-md-6" style="margin-top:20px">

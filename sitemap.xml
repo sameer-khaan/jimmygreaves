@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+		<!--	created with www.mysitemapgenerator.com	-->
+		<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc>https://jimmygreaves.foundation/</loc>
+	<lastmod>2021-10-20T14:07:51+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://jimmygreaves.foundation/auction.php</loc>
+	<lastmod>2021-10-20T14:07:52+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://jimmygreaves.foundation/raffle.php</loc>
+	<lastmod>2021-10-20T14:07:54+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://jimmygreaves.foundation/donate.php</loc>
+	<lastmod>2021-10-20T14:07:55+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://jimmygreaves.foundation/about.php</loc>
+	<lastmod>2021-10-20T14:07:55+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://jimmygreaves.foundation/contact.php</loc>
+	<lastmod>2021-10-20T14:07:55+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+<url>
+	<loc>https://jimmygreaves.foundation/privacy_policy.php</loc>
+	<lastmod>2021-10-20T14:07:55+01:00</lastmod>
+	<priority>1.0</priority>
+</url>
+</urlset>

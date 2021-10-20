@@ -58,9 +58,16 @@
 		    		</div>
 	    		</div>
 	    		
-	    		<div class="col-md-6 if_not_expired">
+	    		<div class="col-md-6 if_not_expired" style="align-items: center;">
 	    			<span id="total_price">£20.00</span>
-					<div id="paypal-button" style="width: 100px; align-items: center; align-self: center; justify-content: center"></div>
+					<div style="display: flex;flex-direction: column;align-items: center;">
+						<div id="paypal-button" style="width: 100px; align-items: center; align-self: center; justify-content: center"></div>
+						<?php
+						if(!isset($_SESSION['login_flag']) || $_SESSION['login_flag']!="1"){
+							echo '<div><small><i>- Account Required</i></small></div>';
+						}
+						?>
+					</div>
 	    		</div>
 	    	</div>
 	    	<div id="description_div" style="margin-top:30px">
