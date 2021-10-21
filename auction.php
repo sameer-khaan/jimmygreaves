@@ -30,7 +30,7 @@ require('header.php');
                 <p class="text-white" style="font-size:50px;">Auction memorabilia</p>
                 <div class="divider mb-4" style="margin:auto"></div>
                 <p class="text-white" style="font-size:20px;">
-					‘Dad scoring his famous goal against Manchester United with the great Georgie Best, Bobby Charlton, Nobby Styles and Alan Gilzean all looking on’.
+					‘Dad scoring his famous goal against Manchester United with the great Georgie Best, Bobby Charlton, Nobby Stiles and Alan Gilzean all looking on’.
 				</p>
             </div>
             <div class="col-lg-8 align-self-baseline mt-5 mb-5" id="section07">

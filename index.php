@@ -114,7 +114,7 @@ require('header.php');
                 <p id="header">Auction</p>
                 <div class="bottom_boder"></div>
                 <p id="description">
-                ‘Dad scoring his famous goal against Manchester United with the great Georgie Best, Bobby Charlton, Nobby Styles and Alan Gilzean all looking on’
+                ‘Dad scoring his famous goal against Manchester United with the great Georgie Best, Bobby Charlton, Nobby Stiles and Alan Gilzean all looking on’
                 </p>
                 <div id="arraw">
                     <i class="fa fa-arrow-right" aria-hidden="true"></i>

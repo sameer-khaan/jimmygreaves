@@ -64,7 +64,7 @@
 						<div id="paypal-button" style="width: 100px; align-items: center; align-self: center; justify-content: center"></div>
 						<?php
 						if(!isset($_SESSION['login_flag']) || $_SESSION['login_flag']!="1"){
-							echo '<div><small><i>- Account Required</i></small></div>';
+							echo '<div><small><i>- website sign up required</i></small></div>';
 						}
 						?>
 					</div>
