@@ -19,13 +19,12 @@ else
     ini_set('display_startup_errors', 0);
     error_reporting(0);
 
-    $servername = "db-mysql-sgp1-70384-do-user-8294932-0.b.db.ondigitalocean.com";
-    $username = "rootnew";
-    $password = "fqv0pp57umztqf10";
-    $dbname = "jimmy";
-    $port = 25060;
+    $servername = "localhost";
+    $username = "wILYHbep";
+    $password = "OpeROtEXZ8x3P1ZB";
+    $dbname = "9exzcUh4";
 
-    $conn = new mysqli($servername, $username, $password, $dbname, $port);
+    $conn = new mysqli($servername, $username, $password, $dbname);
 }
 
 define('MAILCHIMP_APIKEY','fd194716bec5c6fbdff48d332b4c5190-us5');
