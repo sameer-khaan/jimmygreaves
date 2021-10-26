@@ -26,6 +26,7 @@
                                 <th>User Phone</th>
                                 <th>User Email</th>
                                 <th>Message</th>
+								<th>Mailing List</th>
                                 <th>Time</th>
                                 <th>Action</th>
                             </tr>
@@ -72,8 +73,14 @@ require('../footer.php');
 						var time = data[i]['time'];
 						time = new Date(time);
 						time = time.toLocaleString("en-UK", options);
+
+						if(data[i]['mailing_list'] == '1') {
+							var list = 'yes';
+						} else {
+							var list = 'no';
+						}
 						
-    					 string+=`<tr>
+    					string+=`<tr>
                     		<td>
                           `+(i+1)+`
                     		</td>
@@ -81,6 +88,7 @@ require('../footer.php');
                     		<td>`+data[i]['number']+`</td>
                     		<td>`+data[i]['email']+`</td>
                     		<td>`+data[i]['message']+`</td>
+							<td>`+list+`</td>
                     		<td>`+time+`</td>
                     		<td>
                         	    <button class="btn btn-xs btn-danger remove_btn" id="`+data[i]['id']+`"><i class="far fa-trash-alt"></i></button>

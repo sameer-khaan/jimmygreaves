@@ -128,6 +128,12 @@ require('header.php');
 						</div>
 					</div>
 					<div class="col-md-12">
+						<div style="display: flex; align-items: center; text-align: left">
+							<input type="checkbox" id="accept_checkbox_contact" style="margin-right: 10px">
+							<span>I would like to be kept informed of further news, upcoming auctions & raffles.</span>
+						</div>
+					</div>
+					<div class="col-md-12">
 						<div class="form-group text-right mb-0">
 							<span class="btn_underline">
 								<a href="javascript://"><input type="submit" value="Send Message" style="background: none;border: none;font-weight: 600;"></a>
@@ -147,6 +153,12 @@ $("#contactForm").submit(function(e){
 	var number = $("#contactForm #number").val();
 	var email = $("#contactForm #email").val();
 	var message = $("#contactForm #message").val();
+	var accept_checkbox = $("#accept_checkbox_contact:checked").val();
+    if(accept_checkbox == 'on') {
+      accept_checkbox = '1';
+    }else{
+      accept_checkbox = '0';
+    }
 
 	if(name && email && message) {
 		$("input[type='submit']").attr('disabled',true);
@@ -158,9 +170,10 @@ $("#contactForm").submit(function(e){
 				name:name,
 				number:number,
 				email:email,
-				message:message
+				message:message,
+				accept_checkbox:accept_checkbox
 			},
-			async:false,
+			async: true,
 			type: 'post',
 			success: function(re)
 			{

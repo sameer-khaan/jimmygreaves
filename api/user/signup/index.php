@@ -2,11 +2,21 @@
 session_start();
 
 include __DIR__ . "/../../../db.php";
+include __DIR__ . "/../../../vendor/autoload.php";
+
+$client = new MailchimpMarketing\ApiClient();
+
+$client->setConfig([
+  'apiKey' => MAILCHIMP_APIKEY,
+  'server' => MAILCHIMP_SERVER
+]);
+
 $fullname = $_POST['fullname'];
 $email    = $_POST['email'];
 $password = $_POST['password'];
 $password_hash = password_hash($password, PASSWORD_DEFAULT);
 $accept_checkbox = isset($_POST['accept_checkbox']) ? $_POST['accept_checkbox'] : '0';
+$status = ($accept_checkbox == '1') ? 'subscribed' : 'cleaned';
 // $verify = password_verify($password, $password_hash); 
 $header = json_encode(['typ' => 'JWT', 'alg' => 'HS256']);
 $payload = json_encode(['fullname' => $fullname,'email'=>$email]);
@@ -37,11 +47,18 @@ else{
 	$_SESSION['user_name']=$fullname;
 	$_SESSION['user_id']=$id;
 	$_SESSION['email']=$email;
-
+	try {
+		$response = $client->lists->addListMember(MAILCHIMP_LISTID, [
+			"email_address" => $email,
+			"merge_fields" => [
+				"FNAME" => $fullname
+			],
+			"status" => $status,
+		]);
+	}
+	catch(Exception $e) {
+	}
 }
 
 echo json_encode($return);
-
-
-
 ?>

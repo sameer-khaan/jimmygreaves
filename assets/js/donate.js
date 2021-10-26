@@ -18,6 +18,12 @@ $(".amount_select_btn").click(function(){
 	donate_value = parseInt(value);
 });
 
+$("#input_donation_amount").change(function(){
+	var value = $(this).val();
+	$('.amount_select_btn').removeClass("selected");
+	donate_value = parseInt(value);
+});
+
 $("#checkbox_input").click(function(){
   if($("#checkbox_input:checked").val() == 'on') {
     add_gift = '1';
@@ -77,7 +83,6 @@ paypal.Button.render({
                 }
               }]
             });
-         
         },
         // Execute the payment
         onAuthorize: function(data, actions) {

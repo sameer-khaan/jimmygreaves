@@ -1,5 +1,14 @@
 <?php
 include __DIR__ . "/../db.php";
+include __DIR__ . "/../vendor/autoload.php";
+
+$client = new MailchimpMarketing\ApiClient();
+
+$client->setConfig([
+  'apiKey' => MAILCHIMP_APIKEY,
+  'server' => MAILCHIMP_SERVER
+]);
+
 $request = $_POST['request'];
 
 if($request=="get_auctions"){
@@ -390,8 +399,10 @@ if($request=="contact"){
 	$number = mysqli_real_escape_string($conn, $_POST['number']);
 	$email = mysqli_real_escape_string($conn, $_POST['email']);
 	$message = mysqli_real_escape_string($conn, $_POST['message']);
+	$accept_checkbox = isset($_POST['accept_checkbox']) ? $_POST['accept_checkbox'] : '0';
+	$status = ($accept_checkbox == '1') ? 'subscribed' : 'cleaned';
 
-	$sql = "INSERT INTO contact (name,number,email,message) VALUES ('".$name."','".$number."','".$email."','".$message."')";
+	$sql = "INSERT INTO contact (name,number,email,message,mailing_list) VALUES ('".$name."','".$number."','".$email."','".$message."','".$accept_checkbox."')";
 	$result = $conn->query($sql);
 
 	$data = array(
@@ -400,6 +411,18 @@ if($request=="contact"){
 		'email' => $email,
 		'message' => $message
 	);
+
+	try {
+		$response = $client->lists->addListMember(MAILCHIMP_LISTID, [
+			"email_address" => $email,
+			"merge_fields" => [
+				"FNAME" => $name
+			],
+			"status" => $status,
+		]);
+	}
+	catch(Exception $e) {
+	}
 
 	$return['status']=200;
 	$return['data']=$data;
